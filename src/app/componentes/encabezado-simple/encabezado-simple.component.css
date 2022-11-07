@@ -1,0 +1,10 @@
+.texto_1{ /* titulo en 1° capa */
+    text-align: left;
+    color: rgb(64, 240, 20);
+}
+
+#logo{
+    border-radius: 15px;
+    border: 3px solid black;
+    margin-left: 12px;
+}

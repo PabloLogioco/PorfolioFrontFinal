@@ -1,0 +1,36 @@
+<div class="alert alert-info mx-4" id="tituloseccion1" role="alert"> <!-- titulo experiencia -->
+    <div class="row">
+        <div class="col-md-11 my-1">
+            <h3 id="titulo_exp">Experiencia</h3>
+        </div>
+        <div class="col-md-1 my-1">
+            <ng-template [ngIf]="muestra">
+                <button (click)="navegavegaAAgregaExperiencia()" class="btn btn-outline-primary btn-sm" id="agregaExp">Agregar</button>
+            </ng-template>
+        </div>
+    </div>
+</div>
+<div class="container"> <!-- tabla experiencia -->
+    <table class="table table-dark table-striped"> <!-- tabla "experiencia" -->
+        <thead> <!-- encabezado de tabla -->
+            <tr>
+                <th>Desde</th>
+                <th>Hasta</th>
+                <th>Empresa</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody id="datos_experiencia"> 
+        <tr *ngFor="let item of listaExperiencia"> <!-- datos venen del json -->
+            <td>{{item.desde}}</td>
+            <td>{{item.hasta}}</td>
+            <td>{{item.empresa}}</td>
+            <td>{{item.descripcion}}</td>
+            <ng-template [ngIf]="muestra">
+                <button (click)="navegaAEditaExperiencia()" class="btn btn-outline-primary btn-sm" id="editExp">Edit</button>
+                <button (click)="borraExperiencia()" class="btn btn-outline-primary btn-sm" id="eliminaExp">Borrar</button>
+            </ng-template>
+        </tr>
+        </tbody>
+    </table>
+</div>

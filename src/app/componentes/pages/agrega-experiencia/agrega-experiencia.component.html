@@ -1,0 +1,23 @@
+<app-encabezado-simple></app-encabezado-simple>
+<h1>Agregar nueva experiencia</h1>
+
+<form [formGroup]="miFormulario">
+
+    <h2>datos en vivo del formulario</h2>
+    <p>
+        {{ miFormulario.value | json }} <!-- pipe de angular para pasar objeto a JSON -->
+    </p>
+
+    <!-- campos del formulario -->
+    <mat-form-field>
+        <input matInput placeholder="Año" formControlName="anio" />
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Empresa" formControlName="empresa" />
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Descripción" formControlName="descripcion" />
+    </mat-form-field>
+
+
+</form>

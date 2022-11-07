@@ -1,0 +1,35 @@
+.nombretitular{
+    text-align: left;
+    color: rgb(252, 6, 6);
+}
+
+#fotoydatos{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/*  Desde aqui no me carga el fondo (foto)
+.container_banner { /* del componenete banner
+    border-radius: 30px;
+    border: 3px solid rgb(22, 6, 243);
+    width: 90%;
+    height: 180px;
+    background-image: url(/src/assets/imagenes/Fondo_Electronica_3.jpg);
+
+    background-size: 100%;
+    animation: movimiento 30s infinite linear alternate;
+    margin-bottom: 10px;
+} */
+
+@keyframes movimiento{ /* desplazamiento del fondo */
+    from{
+        background-position: bottom;
+    }to{
+        background-position: top;
+    }
+}
+
+#foto_1{
+    border-radius: 15px;
+    border: 3px solid black
+}

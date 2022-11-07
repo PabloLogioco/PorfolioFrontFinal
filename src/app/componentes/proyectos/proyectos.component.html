@@ -1,0 +1,32 @@
+<div class="alert alert-danger mx-4" id="tituloseccion3" role="alert"> <!-- titulo proyectos -->
+    <div class="row">
+        <div class="col-md-11 my-1">
+            <h3 id="titulo_proy">Proyectos</h3>
+        </div>
+        <div class="col-md-1 my-1">
+            <ng-template [ngIf]="muestra">
+                <button (click)="navegavegaAAgregaProyecto()" class="btn btn-outline-primary btn-sm" id="agregaProy">Agregar</button>
+            </ng-template>
+        </div>
+    </div>
+</div>
+<div class="container"> <!-- tabla proyectos -->
+    <table class="table table-dark table-striped"> <!-- tabla "proyectos" -->
+        <thead> <!-- encabezado de tabla -->
+            <tr>
+                <th>Año</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody id="datos_proyectos">
+            <tr *ngFor="let item of listaProyectos"> <!-- datos venen del json -->
+                <td>{{item.anio}}</td>
+                <td>{{item.descripcion}}</td>
+                <ng-template [ngIf]="muestra">
+                    <button (click)="navegaAEditaProyecto()" class="btn btn-outline-primary btn-sm" id="editProy">Edit</button>
+                    <button (click)="borraProyecto()" class="btn btn-outline-primary btn-sm" id="eliminaProy">Borrar</button>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+</div>

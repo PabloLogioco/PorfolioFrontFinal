@@ -1,0 +1,14 @@
+<div class="container_banner mx-5"> <!-- 2° capa. Banner, foto de fondo, imagen de electronica -->
+    <div class="row" id="fotoydatos">
+        <div class="col-md-1" id="foto_titular">  <!-- foto -->
+            <img src="../../../assets/imagenes/MiFoto.jpg" alt="foto" width="75" height="70" id="foto_1" class="img-fluid">
+        </div>
+        <div id="titular" class="col-md-11 nombretitular my-2"> <!-- datos titular -->
+            <h4>{{miPorfolio.titular}}</h4>
+            <h4>{{miPorfolio.titulo}}</h4>
+            <ng-template [ngIf]="muestra">
+                <button (click)="navegavegaAEditaTitular()" class="btn btn-outline-primary btn-sm" id="editTitular">Edit</button>
+            </ng-template>
+    </div>
+    </div>
+</div>
