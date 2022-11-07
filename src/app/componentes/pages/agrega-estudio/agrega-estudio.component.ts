@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
   selector: 'app-agrega-estudio',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregaEstudioComponent implements OnInit {
 
-  constructor() { }
+  nuevoAnio: string = "";
+  nuevaInst: string = "";
+  nuevaDescr: string = "";
+
+  constructor( private datosPorfolio:PorfolioService, private router: Router ) { }
 
   ngOnInit(): void {
   }
+
+  agregaEstudio(): void {
+    this.router.navigate(['home']);
+  } //   editaTitular(): void {
 
 }

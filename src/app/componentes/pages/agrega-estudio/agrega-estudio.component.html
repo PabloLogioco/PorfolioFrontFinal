@@ -1,2 +1,16 @@
 <app-encabezado-simple></app-encabezado-simple>
-<h1>Agregar nuevo estudio</h1>
+<section class="form-login">
+    <h4>Formulario Agrega estudio</h4>
+    <h5></h5>
+    <label>Año:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoAnio">
+
+    <label>Institución:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevaInst" value="">
+
+    <label>Descripción:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevaDescr" value="">
+
+    <button (click)="agregaEstudio()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+
+</section>

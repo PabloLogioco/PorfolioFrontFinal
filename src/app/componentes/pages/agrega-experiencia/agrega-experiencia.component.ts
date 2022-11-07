@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
   selector: 'app-agrega-experiencia',
@@ -8,22 +9,18 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 
 export class AgregaExperienciaComponent implements OnInit {
-  // Definimos formulario
-  miFormulario: FormGroup = new FormGroup({});
 
-  constructor( private formBuilder: FormBuilder ) { }
+  nuevoDesde: string = "";
+  nuevoHasta: string = "";
+  nuevaEmpresa: string = "";
+  nuevaDescr: string = "";
+
+  constructor( private datosPorfolio:PorfolioService, private router: Router ) { }
 
   ngOnInit(): void {
-    // Iniciamos campos del formulario y sus valores
-    this.miFormulario = this.formBuilder.group(
-      {
-        anio: '',
-        empresa: '',
-        descripcion: ''
-      }
-    );
-    this.miFormulario.valueChanges.subscribe(
-      console.log // saca por consola todos los cambios
-    );
   }
+
+  agregaExperiencia(): void {
+    this.router.navigate(['home']);
+  } //   editaTitular(): void {
 }

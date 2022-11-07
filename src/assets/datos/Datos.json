@@ -1,56 +1,59 @@
 { 
     "titular": "Juan Pablo Logioco", 
     "titulo": "Futuro Programador Full Stack Developer Jr..",
+    "usuario": "p",
+    "contrasenia": "l",
+    "urlFoto": "",
     "experiencia": [{
-        "id": "1",
+        "id": 1,
         "desde": "1998",
         "hasta": "2015",
         "empresa": "Morvillo",
         "descripcion": "Mantenimiento electrónica gráfica - Automatizaciones con PLC"
     },
     {
-        "id": "2",
+        "id": 2,
         "desde": "1992",
         "hasta": "2018",
         "empresa": "Komafisa",
         "descripcion": "Automatización de guillotinas CNC - Microcontroladores, C y ASM"
     }],
     "estudios": [{
-        "id": "1",
+        "id": 1,
         "anio": "2022",
         "institucion": "Argentina Programa",
         "descripcion": "#YoProgramo - Full Stack Developer Jr."
     },
     {
-        "id": "2",
+        "id": 2,
         "anio": "2022",
         "institucion": "Egg Cooperation",
         "descripcion": "Programcion desde cero - Aprendizaje en cooperación - Fundamentos, Lógica algorítmica, lógica matemática"
     },
     {
-        "id": "3",
+        "id": 3,
         "anio": "2021",
         "institucion": "Argentina Programa",
         "descripcion": "#SeProgramar - Fundamentos, Programación imperativa, Programación con Objetos"
     },
     {
-        "id": "4",
+        "id": 4,
         "anio": "1994",
         "institucion": "Fundación Tecnológica Argentina",
         "descripcion": "Programación en C"
     }],
     "proyectos": [{
-        "id": "1",
+        "id": 1,
         "anio": "2021",
         "descripcion": "App. Edición de tarjetas para máquinas de tejido - QT Creator - C++"
     },
     {
-        "id": "2",
+        "id": 2,
         "anio": "2002",
         "descripcion": "Gloria 1 - Programador CNC para guillotinas - PIC18F422 - lenguaje C y ASM"
     },
     {
-        "id": "3",
+        "id": 3,
         "anio": "2022",
         "descripcion": "Gloria Color - Programador CNC para guillotinas con pantalla VGA 7'- ESP32 - lenguaje C++"
     }] 

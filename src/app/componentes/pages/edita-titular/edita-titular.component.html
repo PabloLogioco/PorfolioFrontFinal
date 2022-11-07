@@ -1,2 +1,23 @@
 <app-encabezado-simple></app-encabezado-simple>
-<h1>Edita titular</h1>
+<section class="form-login">
+    <h4>Formulario Edita titular</h4>
+    <h5></h5>
+    <label>Titular:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoTitular">
+
+    <label>Titulo:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoTitulo" value="">
+
+    <label>Usuario:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoUsuario" value="">
+
+    <label>Contraseña:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevaContrasenia" value="">
+
+    <label>URL de la foto:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoURL" value="">
+
+    <button (click)="editaTitular()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+
+</section>
+

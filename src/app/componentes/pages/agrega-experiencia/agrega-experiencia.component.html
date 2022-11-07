@@ -1,23 +1,19 @@
 <app-encabezado-simple></app-encabezado-simple>
-<h1>Agregar nueva experiencia</h1>
+<section class="form-login">
+    <h4>Formulario Agrega experiencia</h4>
+    <h5></h5>
+    <label>Año Inicio:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoDesde">
 
-<form [formGroup]="miFormulario">
+    <label>Año Fin:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoHasta" value="">
 
-    <h2>datos en vivo del formulario</h2>
-    <p>
-        {{ miFormulario.value | json }} <!-- pipe de angular para pasar objeto a JSON -->
-    </p>
+    <label>Empresa:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevaEmpresa" value="">
 
-    <!-- campos del formulario -->
-    <mat-form-field>
-        <input matInput placeholder="Año" formControlName="anio" />
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Empresa" formControlName="empresa" />
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Descripción" formControlName="descripcion" />
-    </mat-form-field>
+    <label>Descripción:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevaDescr" value="">
 
+    <button (click)="agregaExperiencia()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
 
-</form>
+</section>
