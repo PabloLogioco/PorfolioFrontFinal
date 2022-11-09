@@ -11,58 +11,52 @@
     </div>
 </div>
 <div class="container"> <!-- tabla estudios -->
-    <table class="table table-dark table-striped"> <!-- tabla "estudios" -->
-        <thead> <!-- encabezado de tabla -->
-            <tr>
-                <th>Año</th>
-                <th>Institución</th>
-                <th>Descripción</th>
-            </tr>
-        </thead>
-        <tbody id="datos_estudios">
-            <tr *ngFor="let item of listaEstudios"> <!-- datos venen del json -->
 
-                <div *ngIf="muestra; then thenBlock else elseBlock"></div>
-                <ng-template #thenBlock>
-<!--                    
-                    <input class="controls" type="text" placeholder="item.anio" [(ngModel)]="item.anio">
-                    <input class="controls" type="text" placeholder="item.institucion" [(ngModel)]="item.institucion">
-                    <input class="controls" type="text" placeholder="descripcion" [(ngModel)]="item.descripcion">
-
-                    <button class="btn btn-outline-primary btn-sm" id="eliminaEst">Eliminar</button>
--->
-
-                    <td>{{item.anio}}</td>
-                    <td>{{item.institucion}}</td>
-                    <td>{{item.descripcion}}</td>
-
-                    <button (click)="navegaAEditaEstudio()" class="btn btn-outline-primary btn-sm" id="editEst">Edit</button>
-                    <button (click)="borraEstudio()" class="btn btn-outline-primary btn-sm" id="eliminaEst">Borrar</button>
-
-                </ng-template>
-
-                <ng-template #elseBlock>
-                    <td>{{item.anio}}</td>
-                    <td>{{item.institucion}}</td>
-                    <td>{{item.descripcion}}</td>
-                </ng-template>
-
-            </tr>
-        </tbody>
-    </table>
+    <div *ngIf="cargando; else yaEstaCargado">
+        <div>
+            <h3>Cargando...</h3>
+            <h1></h1>
+            <div class="spinner-border text-primary"></div>
+            <h1></h1>
+        </div>
+    </div>
+    
+    <ng-template #yaEstaCargado>
+        <table class="table table-dark table-striped">             <!-- tabla "estudios" -->
+            <thead>                <!-- encabezado de tabla -->
+                <tr>
+                    <th>Año</th>
+                    <th>Institución</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+    
+            <tbody id="datos_estudios">
+                <tr *ngFor="let item of listaEstudios">
+                    <!-- datos venen del json -->
+                    <div *ngIf="muestra; then thenBlock else elseBlock"></div>
+                    <ng-template #thenBlock>
+    
+                        <td>{{item.anio}}</td>
+                        <td>{{item.institucion}}</td>
+                        <td>{{item.descripcion}}</td>
+    
+                        <button (click)="navegaAEditaEstudio(item.id)" class="btn btn-outline-primary btn-sm"
+                            id="editEst">Edit</button>
+                        <button (click)="borraEstudio(item.id)" class="btn btn-outline-primary btn-sm"
+                            id="eliminaEst">Borrar</button>
+    
+                    </ng-template>
+    
+                    <ng-template #elseBlock>
+                        <td>{{item.anio}}</td>
+                        <td>{{item.institucion}}</td>
+                        <td>{{item.descripcion}}</td>
+                    </ng-template>
+    
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
 </div>
-
-<!--
-<tbody id="datos_estudios">
-    <tr *ngFor="let item of listaEstudios"> datos venen del json 
-        <td>{{item.anio}}</td>
-        <td>{{item.institucion}}</td>
-        <td>{{item.descripcion}}</td>
-        <ng-template [ngIf]="muestra">
-            <button class="btn btn-outline-primary btn-sm" id="editEst">Edit</button>
-            <button class="btn btn-outline-primary btn-sm" id="eliminaEst">Borrar</button>
-        </ng-template>
-    </tr>
-</tbody>
--->
 

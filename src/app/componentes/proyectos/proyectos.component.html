@@ -11,22 +11,37 @@
     </div>
 </div>
 <div class="container"> <!-- tabla proyectos -->
-    <table class="table table-dark table-striped"> <!-- tabla "proyectos" -->
-        <thead> <!-- encabezado de tabla -->
-            <tr>
-                <th>Año</th>
-                <th>Descripción</th>
-            </tr>
-        </thead>
-        <tbody id="datos_proyectos">
-            <tr *ngFor="let item of listaProyectos"> <!-- datos venen del json -->
-                <td>{{item.anio}}</td>
-                <td>{{item.descripcion}}</td>
-                <ng-template [ngIf]="muestra">
-                    <button (click)="navegaAEditaProyecto()" class="btn btn-outline-primary btn-sm" id="editProy">Edit</button>
-                    <button (click)="borraProyecto()" class="btn btn-outline-primary btn-sm" id="eliminaProy">Borrar</button>
-                </ng-template>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div *ngIf="cargando; else yaEstaCargado">
+        <div>
+            <h3>Cargando...</h3>
+            <h1></h1>
+            <div class="spinner-border text-primary"></div>
+        </div>
+    </div>
+    
+    <ng-template #yaEstaCargado>
+        <table class="table table-dark table-striped">
+            <!-- tabla "proyectos" -->
+            <thead>
+                <!-- encabezado de tabla -->
+                <tr>
+                    <th>Año</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody id="datos_proyectos">
+                <tr *ngFor="let item of listaProyectos">
+                    <!-- datos venen del json -->
+                    <td>{{item.anio}}</td>
+                    <td>{{item.descripcion}}</td>
+                    <ng-template [ngIf]="muestra">
+                        <button (click)="navegaAEditaProyecto(item.id)" class="btn btn-outline-primary btn-sm"
+                            id="editProy">Edit</button>
+                        <button (click)="borraProyecto(item.id)" class="btn btn-outline-primary btn-sm"
+                            id="eliminaProy">Borrar</button>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+    </div>

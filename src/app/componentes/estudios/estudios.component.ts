@@ -12,6 +12,8 @@ export class EstudiosComponent implements OnInit {
 
   listaEstudios:any;
   muestra: boolean = glob.edicionHabilitada; 
+  nIntervId: any;
+  cargando: boolean = true;
 
   constructor(private datosPorfolio:PorfolioService, private router: Router) {
   }
@@ -21,17 +23,26 @@ export class EstudiosComponent implements OnInit {
       // console.log(data);
       this.listaEstudios = data.estudios;
     });
+    this.nIntervId = setInterval(() => this.cargaEstudios(), 1500); // emula llegada de datos
   }
 
   navegaAgregaEstudio(): void {
     this.router.navigate(['agregaEstudio']);
   }
   
-  navegaAEditaEstudio(): void {
+  navegaAEditaEstudio(id: number): void {
     this.router.navigate(['editaEstudio']);
   }
   
-  borraEstudio() {
+  borraEstudio(id: number) {
     
+  }
+
+  cargaEstudios() {
+
+    clearInterval(this.nIntervId);
+    // release our intervalID from the variable
+    this.nIntervId = null;
+    this.cargando = false;
   }
 }

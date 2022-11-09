@@ -21,8 +21,8 @@ export class BannerComponent implements OnInit {
     this.datosPorfolio.ObtenerDatos().subscribe(data => {
       // console.log(data);
       this.miPorfolio = data;
-      setInterval(() => this.CambiaColorTitular(), 400);
     });
+    setInterval(() => this.CambiaColorTitular(), 400);
   }
 
   navegavegaAEditaTitular(): void {

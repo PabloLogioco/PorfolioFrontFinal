@@ -12,6 +12,8 @@ export class ExperienciaComponent implements OnInit {
 
   listaExperiencia:any;
   muestra: boolean = glob.edicionHabilitada; 
+  nIntervId: any;
+  cargando: boolean = true;
 
   constructor(private datosPorfolio:PorfolioService, private router: Router ) {
   }
@@ -20,20 +22,27 @@ export class ExperienciaComponent implements OnInit {
     this.datosPorfolio.ObtenerDatos().subscribe(data => {
       // console.log(data);
       this.listaExperiencia = data.experiencia;
-
     });
+    this.nIntervId = setInterval(() => this.cargaExperiencia(), 2500); // emula llegada de datos
   }
 
   navegavegaAAgregaExperiencia(): void {
     this.router.navigate(['agregaExperiencia']);
   }
 
-  borraExperiencia(): void {
+  borraExperiencia(id: number): void {
 
   }
 
-  navegaAEditaExperiencia(): void {
+  navegaAEditaExperiencia(id: number): void {
     this.router.navigate(['editaExperiencia']);
+  }
+
+  cargaExperiencia() {
+    clearInterval(this.nIntervId);
+    // release our intervalID from the variable
+    this.nIntervId = null;
+    this.cargando = false;
   }
 }
 //

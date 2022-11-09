@@ -16,6 +16,7 @@ export class EncabezadoComponent implements OnInit {
   logx: string = ""; // texto para el boton para logear y habilitar edicion
   cambioSegundos: boolean = true;
   BKSegundos: number = -1; // memoriza segundo actual 
+  muestra: boolean = glob.edicionHabilitada;
   
   constructor( private router: Router) { 
   }

@@ -1,2 +1,13 @@
 <app-encabezado-simple></app-encabezado-simple>
-<h1>Agregar nuevo proyecto</h1>
+<section class="form-login">
+    <h4>Formulario Agrega proyecto</h4>
+    <h5></h5>
+    <label>Año del proyecto:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevoAnio">
+
+    <label>Descripción:</label>
+    <input class="controls" type="text" [(ngModel)]="nuevaDescr" value="">
+
+    <button (click)="agregaProyecto()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+
+</section>

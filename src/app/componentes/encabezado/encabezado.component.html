@@ -7,9 +7,13 @@
         </div>
         <div class="col-md-9 texto_1 my-3" id="titulo_fecha">
             {{ titulo }} - {{fecha}} {{hora}}   <!-- titulo,fecha y hora -->
+            <ng-template [ngIf]="muestra">
+                <div id="titulo_fecha">
+                    ¡ Edición habilitada !
+                </div>
+            </ng-template>
         </div> 
         <div class="col-md-1 my-3">  <!-- boton login para editar -->
-        <!--    <button type="button" class="btn btn-outline-primary btn-sm">{{logx}}</button> -->
             <button (click)="navegaALogin()" type="button" class="btn btn-outline-primary btn-sm">
                 {{logx}} </button>
         </div>

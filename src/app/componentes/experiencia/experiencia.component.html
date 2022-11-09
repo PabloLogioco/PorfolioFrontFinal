@@ -11,26 +11,43 @@
     </div>
 </div>
 <div class="container"> <!-- tabla experiencia -->
-    <table class="table table-dark table-striped"> <!-- tabla "experiencia" -->
-        <thead> <!-- encabezado de tabla -->
-            <tr>
-                <th>Desde</th>
-                <th>Hasta</th>
-                <th>Empresa</th>
-                <th>Descripción</th>
-            </tr>
-        </thead>
-        <tbody id="datos_experiencia"> 
-        <tr *ngFor="let item of listaExperiencia"> <!-- datos venen del json -->
-            <td>{{item.desde}}</td>
-            <td>{{item.hasta}}</td>
-            <td>{{item.empresa}}</td>
-            <td>{{item.descripcion}}</td>
-            <ng-template [ngIf]="muestra">
-                <button (click)="navegaAEditaExperiencia()" class="btn btn-outline-primary btn-sm" id="editExp">Edit</button>
-                <button (click)="borraExperiencia()" class="btn btn-outline-primary btn-sm" id="eliminaExp">Borrar</button>
-            </ng-template>
-        </tr>
-        </tbody>
-    </table>
+    <div *ngIf="cargando; else yaEstaCargado">
+        <div>
+            <h3>Cargando...</h3>
+            <h1></h1>
+            <div class="spinner-border text-primary"></div>
+            <h1></h1>
+        </div>
+    </div>
+    
+    <ng-template #yaEstaCargado>
+    
+        <table class="table table-dark table-striped">
+            <!-- tabla "experiencia" -->
+            <thead>
+                <!-- encabezado de tabla -->
+                <tr>
+                    <th>Desde</th>
+                    <th>Hasta</th>
+                    <th>Empresa</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody id="datos_experiencia">
+                <tr *ngFor="let item of listaExperiencia">
+                    <!-- datos venen del json -->
+                    <td>{{item.desde}}</td>
+                    <td>{{item.hasta}}</td>
+                    <td>{{item.empresa}}</td>
+                    <td>{{item.descripcion}}</td>
+                    <ng-template [ngIf]="muestra">
+                        <button (click)="navegaAEditaExperiencia(item.id)" class="btn btn-outline-primary btn-sm"
+                            id="editExp">Edit</button>
+                        <button (click)="borraExperiencia(item.id)" class="btn btn-outline-primary btn-sm"
+                            id="eliminaExp">Borrar</button>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
   selector: 'app-agrega-proyecto',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregaProyectoComponent implements OnInit {
 
-  constructor() { }
+  nuevoAnio: string = "";
+  nuevaDescr: string = "";
+
+  constructor( private datosPorfolio:PorfolioService, private router: Router ) { }
 
   ngOnInit(): void {
   }
 
+  agregaProyecto(): void {
+    this.router.navigate(['home']);
+  } //   editaTitular(): void {
 }
