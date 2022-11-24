@@ -1,48 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
 import * as glob from 'src/global'; // importa variables globales
 import { Router } from '@angular/router';
+import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { Experiencia } from 'src/Modelos/experiencia';
 
 @Component({
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html',
   styleUrls: ['./experiencia.component.css']
 })
+
 export class ExperienciaComponent implements OnInit {
 
-  listaExperiencia:any;
+  listaExperiencia: Experiencia | any;
   muestra: boolean = glob.edicionHabilitada; 
   nIntervId: any;
   cargando: boolean = true;
 
-  constructor(private datosPorfolio:PorfolioService, private router: Router ) {
+  constructor(private datosBack:ExperienciaService, private router: Router ) {
   }
 
   ngOnInit(): void {
-    this.datosPorfolio.ObtenerDatos().subscribe(data => {
-      // console.log(data);
-      this.listaExperiencia = data.experiencia;
+    this.datosBack.ObtenerExperiencias().subscribe(data => {
+      this.listaExperiencia = data;
     });
     this.nIntervId = setInterval(() => this.cargaExperiencia(), 2500); // emula llegada de datos
   }
 
-  navegavegaAAgregaExperiencia(): void {
+  public navegavegaAAgregaExperiencia(): void {
     this.router.navigate(['agregaExperiencia']);
   }
 
-  borraExperiencia(id: number): void {
-
+  public navegaAEditaExperiencia(id: number): void {
+    this.router.navigate(['editaExperiencia', id]);
   }
 
-  navegaAEditaExperiencia(id: number): void {
-    this.router.navigate(['editaExperiencia']);
+  public borraExperiencia(id: number): void {
+    if(glob.edicionTotal) {  
+      this.datosBack.borraExperiencia(id).subscribe(); // elimina item en la BD.
+    }
+    this.router.navigate(['eliminaItem']);
   }
 
-  cargaExperiencia() {
-    clearInterval(this.nIntervId);
-    // release our intervalID from the variable
+  private cargaExperiencia() {
+    clearInterval(this.nIntervId);    // release our intervalID from the variable
     this.nIntervId = null;
     this.cargando = false;
   }
 }
-//

@@ -10,18 +10,23 @@ import { EditaEstudioComponent } from './componentes/pages/edita-estudio/edita-e
 import { EditaExperienciaComponent } from './componentes/pages/edita-experiencia/edita-experiencia.component';
 import { EditaProyectoComponent } from './componentes/pages/edita-proyecto/edita-proyecto.component';
 import { EditaTitularComponent } from './componentes/pages/edita-titular/edita-titular.component';
+import { EliminaItemComponent } from './componentes/pages/elimina-item/elimina-item.component';
 import { HomePageComponent } from './componentes/pages/home-page/home-page.component';
 import { LoginComponent } from './componentes/pages/login/login.component';
+import { LoginOKComponent } from './componentes/pages/login/logionOK/login-ok/login-ok.component';
+import { LoginErrorComponent } from './componentes/pages/login/login-error/login-error.component';
+import { LoginParcialComponent } from './componentes/pages/login/login-parcial/login-parcial.component';
+import { LoginOutComponent } from './componentes/pages/login/login-out/login-out.component';
 
 const routes: Routes = [ // array de rutas a usar
   {
-    path: '', // cuando inicia por 1ª vez carga la home
-    pathMatch: 'full',
-    redirectTo: 'home'
+    path: '', // cuando inicia por 1ª vez se redirecciona a home, carga la home
+    pathMatch: 'full', // de la raiz del proyecto va a home
+    redirectTo: 'home' // redirije a home
   },
   {
     path: 'home',
-    component: HomePageComponent
+    component: HomePageComponent // carga componente HomeComponnte
    },
   {
     path: 'login',
@@ -36,7 +41,7 @@ const routes: Routes = [ // array de rutas a usar
   component: AgregaEstudioComponent
   },
   {
-    path: 'editaEstudio',
+    path: 'editaEstudio/:id', // con parametro id
     component: EditaEstudioComponent
   },
   {
@@ -44,7 +49,7 @@ const routes: Routes = [ // array de rutas a usar
   component: AgregaExperienciaComponent
   },
   {
-    path: 'editaExperiencia',
+    path: 'editaExperiencia/:id', // con parametro id
     component: EditaExperienciaComponent
   },
   {
@@ -52,8 +57,28 @@ const routes: Routes = [ // array de rutas a usar
     component: AgregaProyectoComponent
   },
   {
-    path: 'editaProyecto',
+    path: 'editaProyecto/:id', // con parametro id
     component: EditaProyectoComponent
+  },
+  {
+    path: 'loginOK',
+    component: LoginOKComponent
+  },
+  {
+    path: 'loginError',
+    component: LoginErrorComponent
+  },
+  {
+    path: 'loginParcial',
+    component: LoginParcialComponent
+  },
+  {
+    path: 'loginOut',
+    component: LoginOutComponent
+  },
+  {
+    path: 'eliminaItem',
+    component: EliminaItemComponent
   },
   {
     path: '**',  /// si no encuentra la ruta carga la home

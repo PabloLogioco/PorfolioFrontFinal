@@ -1,0 +1,11 @@
+.caja {
+    margin-top: 10%;
+    width: 100 px;
+    background-color: rgb(52, 237, 23);
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.texto_E {
+    text-align: center;
+}

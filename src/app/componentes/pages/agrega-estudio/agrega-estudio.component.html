@@ -3,14 +3,24 @@
     <h4>Formulario Agrega estudio</h4>
     <h5></h5>
     <label>Año:</label>
-    <input class="controls" type="text" [(ngModel)]="nuevoAnio">
+    <input class="controls" type="text" [(ngModel)]="nuevoEstudio.anio">
 
     <label>Institución:</label>
-    <input class="controls" type="text" [(ngModel)]="nuevaInst" value="">
+    <input class="controls" type="text" [(ngModel)]="nuevoEstudio.institucion">
 
     <label>Descripción:</label>
-    <input class="controls" type="text" [(ngModel)]="nuevaDescr" value="">
+    <input class="controls" type="text" [(ngModel)]="nuevoEstudio.descripcion">
 
-    <button (click)="agregaEstudio()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
-
+    <div class="container_botones mx-5">
+        <div class="row">
+            <div class="col-md-2">
+                <button (click)="agregaEstudio()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
+            </div>
+        </div>
+    </div>
 </section>

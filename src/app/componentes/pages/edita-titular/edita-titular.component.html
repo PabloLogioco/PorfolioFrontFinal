@@ -14,21 +14,32 @@
     <ng-template #yaEstaCargado>
 
         <label>Titular:</label>
-        <input class="controls" type="text" [(ngModel)]="nuevoTitular">
+        <input class="controls" type="text" [(ngModel)]="datosTitular[0].nombre">
     
         <label>Titulo:</label>
-        <input class="controls" type="text" [(ngModel)]="nuevoTitulo">
+        <input class="controls" type="text" [(ngModel)]="datosTitular[0].titulo">
     
         <label>Usuario:</label>
-        <input class="controls" type="text" [(ngModel)]="nuevoUsuario">
+        <input class="controls" type="text" [(ngModel)]="datosLogNuevos.usuario">
     
         <label>Contraseña:</label>
-        <input class="controls" type="text" [(ngModel)]="nuevaContrasenia">
+        <input class="controls" type="text" [(ngModel)]="datosLogNuevos.contrasenia">
     
         <label>URL de la foto:</label>
-        <input class="controls" type="text" [(ngModel)]="nuevoURL">
+        <input class="controls" type="text" [(ngModel)]="datosTitular[0].url_foto">
 
-        <button (click)="editaTitular()" type="button" class="btn btn-outline-primary btn-sm">OK</button>
+        <div class="container_botones mx-5">
+            <div class="row">
+                <div class="col-md-2">
+                    <button (click)="editaTitular()" type="button" class="btn btn-outline-primary btn-sm">OK</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
+                </div>
+            </div>
+        </div>
     </ng-template>
     
 </section>

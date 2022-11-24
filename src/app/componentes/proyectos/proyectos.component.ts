@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
 import * as glob from 'src/global'; // importa variables globales
 import { Router } from '@angular/router';
+import { ProyectoService } from 'src/app/servicios/proyecto.service';
+import { Proyecto } from 'src/Modelos/proyecto';
 
 @Component({
   selector: 'app-proyectos',
@@ -10,37 +11,39 @@ import { Router } from '@angular/router';
 })
 export class ProyectosComponent implements OnInit {
 
-  listaProyectos:any;
+  listaProyectos: Proyecto | any;
   muestra: boolean = glob.edicionHabilitada; 
   nIntervId: any;
   cargando: boolean = true;
 
-  constructor(private datosPorfolio:PorfolioService, private router: Router) {
+  constructor(private datosBack:ProyectoService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.datosPorfolio.ObtenerDatos().subscribe(data => {
+    this.datosBack.ObtenerProyectos().subscribe(data => {
       // console.log(data);
-      this.listaProyectos = data.proyectos;
+      this.listaProyectos = data;
     });
     this.nIntervId = setInterval(() => this.cargaProyectos(), 3000); // emula llegada de datos
   }
 
-  navegavegaAAgregaProyecto(): void {
+  public navegavegaAAgregaProyecto(): void {
     this.router.navigate(['agregaProyecto']);
   }
 
-  borraProyecto(id: number): void {
-
+  public navegaAEditaProyecto(id: number): void {
+    this.router.navigate(['editaProyecto', id]);
   }
 
-  navegaAEditaProyecto(id: number): void {
-    this.router.navigate(['editaProyecto']);
+  public borraProyecto(id: number): void {
+    if(glob.edicionTotal) {
+      this.datosBack.borraProyecto(id).subscribe(); // elimina item en la BD.
+    }
+    this.router.navigate(['eliminaItem']);
   }
 
-  cargaProyectos() {
-    clearInterval(this.nIntervId);
-    // release our intervalID from the variable
+  public cargaProyectos() {
+    clearInterval(this.nIntervId);    // release our intervalID from the variable
     this.nIntervId = null;
     this.cargando = false;
   }

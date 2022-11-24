@@ -3,17 +3,27 @@
     <h4>Formulario Agrega experiencia</h4>
     <h5></h5>
     <label>Año Inicio:</label>
-    <input class="controls" type="text" [(ngModel)]="nuevoDesde">
+    <input class="controls" type="text" [(ngModel)]="nuevaExperiencia.desde">
 
     <label>Año Fin:</label>
-    <input class="controls" type="text" [(ngModel)]="nuevoHasta" value="">
+    <input class="controls" type="text" [(ngModel)]="nuevaExperiencia.hasta">
 
     <label>Empresa:</label>
-    <input class="controls" type="text" [(ngModel)]="nuevaEmpresa" value="">
+    <input class="controls" type="text" [(ngModel)]="nuevaExperiencia.empresa">
 
     <label>Descripción:</label>
-    <input class="controls" type="text" [(ngModel)]="nuevaDescr" value="">
+    <input class="controls" type="text" [(ngModel)]="nuevaExperiencia.descripcion">
 
-    <button (click)="agregaExperiencia()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
-
+    <div class="container_botones mx-5">
+        <div class="row">
+            <div class="col-md-2">
+                <button (click)="agregaExperiencia()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
+            </div>
+        </div>
+    </div>
 </section>

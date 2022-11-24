@@ -32,26 +32,26 @@
             </thead>
     
             <tbody id="datos_estudios">
-                <tr *ngFor="let item of listaEstudios">
+                <tr *ngFor="let estudio of listaEstudios">
                     <!-- datos venen del json -->
                     <div *ngIf="muestra; then thenBlock else elseBlock"></div>
                     <ng-template #thenBlock>
     
-                        <td>{{item.anio}}</td>
-                        <td>{{item.institucion}}</td>
-                        <td>{{item.descripcion}}</td>
+                        <td>{{estudio.anio}}</td>
+                        <td>{{estudio.institucion}}</td>
+                        <td>{{estudio.descripcion}}</td>
     
-                        <button (click)="navegaAEditaEstudio(item.id)" class="btn btn-outline-primary btn-sm"
+                        <button (click)="navegaAEditaEstudio(estudio.id)" class="btn btn-outline-primary btn-sm"
                             id="editEst">Edit</button>
-                        <button (click)="borraEstudio(item.id)" class="btn btn-outline-primary btn-sm"
+                        <button (click)="borraEstudio(estudio.id)" class="btn btn-outline-danger btn-sm"
                             id="eliminaEst">Borrar</button>
     
                     </ng-template>
     
                     <ng-template #elseBlock>
-                        <td>{{item.anio}}</td>
-                        <td>{{item.institucion}}</td>
-                        <td>{{item.descripcion}}</td>
+                        <td>{{estudio.anio}}</td>
+                        <td>{{estudio.institucion}}</td>
+                        <td>{{estudio.descripcion}}</td>
                     </ng-template>
     
                 </tr>

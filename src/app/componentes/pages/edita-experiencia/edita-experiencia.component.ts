@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import * as glob from 'src/global'; // importa variables globales
+import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { Experiencia } from 'src/Modelos/experiencia';
 
 @Component({
   selector: 'app-edita-experiencia',
@@ -7,9 +12,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditaExperienciaComponent implements OnInit {
 
-  constructor() { }
+  listaExperiencia: Experiencia | any; // toda la lista de experiencia
+  experiencia: Experiencia | any; // el item experiencia a editar
+  idAEditar: number = 0;  // ID del elemento a editar
+
+  constructor( private datosBack:ExperienciaService, private route: ActivatedRoute,
+               private router2: Router ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe( /// recupera id pasado por ruta
+      (params: any) => {
+        if(params.id) {
+            this.idAEditar = params.id;
+        }
+      }
+    )
+
+    this.datosBack.ObtenerExperiencias().subscribe(data => {
+      this.listaExperiencia = data;
+
+      for (let index = 0; index < this.listaExperiencia.length; index++) { // busca elemento a editar
+        const element = this.listaExperiencia[index];
+        if (element.id == this.idAEditar) {
+          this.experiencia = element;
+        }
+      }
+    });
   }
 
+  guardaExperiencia(): void {
+    if(glob.edicionTotal) {      // guarda item ingresado en BD.
+      this.datosBack.modificaExperiencia(this.experiencia).subscribe();
+    }
+    this.router2.navigate(['home']);
+  } //   guardaEstudio(): void {
+
+  cancelar(): void {
+    this.router2.navigate(['home']);
+  } //   cancelar(): void {
 }

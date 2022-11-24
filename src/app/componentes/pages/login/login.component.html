@@ -1,14 +1,78 @@
 <app-encabezado-simple></app-encabezado-simple>
+<h1></h1>
+<!-- 
+<div class="container mx-0">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h1 class="etiqueta">Iniciar Sesión</h1>
+            <form [formGroup]="form" class="m 5" (ngSubmit)="onEnviar($event)">
+                <div class="form-group">
+                    <label class="etiqueta" for="exampleInputEmail1">Email</label>
+                    <input type="email" formControlName="email"
+                    [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.touched}"
+                         class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div *ngIf="Email?.errors && Email?.touched">
+                        <p *ngIf="Email?.hasError('required')" class="text-danger">
+                            El email es requerido.
+                        </p>
+                        <p *ngIf="Email?.hasError('email')" class="text-danger">
+                            El formato del mail debe ser válido.
+                        </p>
+                    </div>
+                </div>
+                <h1></h1>
+                <div class="form-group">
+                    <label class="etiqueta" for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" formControlName="password" 
+                    [ngClass]="{'is-invalid': Password?.errors && Password?.touched,
+                        'is-valid': !Password?.errors && Password?.touched}"
+                    class="form-control" id="exampleInputPassword1">
+                    <div *ngIf="Password?.errors && Password?.touched">
+                        <p *ngIf="Password?.hasError('required')" class="text-danger">
+                            La contraseña es requerida.
+                        </p>
+                        <p *ngIf="Password?.hasError('minlength')" class="text-danger">
+                            La contraseña debe ser de 8 o más caracteres.
+                        </p>
+                    </div>
+                </div>
+                <h1></h1>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+-->
 
 <section class="form-login">
     <h4>Formulario Login</h4>
     <h5></h5>
     <label>Usuario:</label>
-    <input class="controls" type="text" [(ngModel)]="usuario" value="">
+    <input class="controls" type="text" [(ngModel)]="usuarioIngr" value="">
 
     <label>Contraseña:</label>
-    <input class="controls" type="text" [(ngModel)]="contrasenia" value="">
-
-    <button (click)="Ingresar()" type="button" class="btn btn-outline-primary btn-sm" >Ingresar</button>
-
+    <input class="controls" type="text" [(ngModel)]="contraseniaIngr" value="">
+    <h1></h1>
+    <div class="container_botones mx-5">
+        <div class="row">
+            <div class="col-md-2">
+                <button (click)="Ingresar()" type="button" class="btn btn-outline-primary btn-sm" >Ingresar</button>
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
+                <button (click)="habilitaEdicionParcial()" type="button" class="btn btn-outline-warning btn-sm" >Parcial</button>
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
+                <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <h1></h1>
+    <h5 class="nota">* Boton "Parcial" habilita muestra de la edición</h5>
+    <h5 class="nota">  de datos, sin modificarlos.</h5>
 </section>

@@ -1,6 +1,6 @@
 // modulos
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // para servicios
@@ -24,6 +24,11 @@ import { EditaTitularComponent } from './componentes/pages/edita-titular/edita-t
 import { EncabezadoSimpleComponent } from './componentes/encabezado-simple/encabezado-simple.component';
 import { HomePageComponent } from './componentes/pages/home-page/home-page.component';
 import { LoginComponent } from './componentes/pages/login/login.component';
+import { LoginOKComponent } from './componentes/pages/login/logionOK/login-ok/login-ok.component';
+import { EliminaItemComponent } from './componentes/pages/elimina-item/elimina-item.component';
+import { LoginErrorComponent } from './componentes/pages/login/login-error/login-error.component';
+import { LoginParcialComponent } from './componentes/pages/login/login-parcial/login-parcial.component';
+import { LoginOutComponent } from './componentes/pages/login/login-out/login-out.component';
 
 @NgModule({
   declarations: [
@@ -42,18 +47,24 @@ import { LoginComponent } from './componentes/pages/login/login.component';
     EditaTitularComponent,
     EncabezadoSimpleComponent,
     HomePageComponent,
-    LoginComponent
+    LoginComponent,
+    LoginOKComponent,
+    EliminaItemComponent,
+    LoginErrorComponent,
+    LoginParcialComponent,
+    LoginOutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, // para enrutado
     FormsModule,
-    HttpClientModule, 
-    BrowserAnimationsModule,  // para servicios
+    HttpClientModule, // para peticiones HTPP
+    BrowserAnimationsModule,  //
     ReactiveFormsModule,    // formularios reactivos
     MaterialModule // módulo personalizado de angular material
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

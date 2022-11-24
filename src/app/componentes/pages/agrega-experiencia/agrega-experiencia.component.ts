@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import * as glob from 'src/global'; // importa variables globales
+import { Experiencia } from 'src/Modelos/experiencia';
 
 @Component({
   selector: 'app-agrega-experiencia',
@@ -10,17 +12,21 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 export class AgregaExperienciaComponent implements OnInit {
 
-  nuevoDesde: string = "";
-  nuevoHasta: string = "";
-  nuevaEmpresa: string = "";
-  nuevaDescr: string = "";
+  nuevaExperiencia: Experiencia = new Experiencia("", "", "", "");
 
-  constructor( private datosPorfolio:PorfolioService, private router: Router ) { }
+  constructor( private datosBack:ExperienciaService, private router: Router ) { }
 
   ngOnInit(): void {
   }
 
   agregaExperiencia(): void {
+    if(glob.edicionTotal) {      // agrega item ingresado
+      this.datosBack.newExperiencia(this.nuevaExperiencia).subscribe();
+    }
     this.router.navigate(['home']);
   } //   editaTitular(): void {
+
+  cancelar(): void {
+    this.router.navigate(['home']);
+  } //   cancelar(): void {
 }

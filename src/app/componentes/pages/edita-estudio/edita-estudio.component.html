@@ -1,2 +1,36 @@
 <app-encabezado-simple></app-encabezado-simple>
-<h1>Edita estudio</h1>
+
+<section class="form-login">
+    <h4>Formulario edita estudio</h4>
+    <h5></h5>
+    <label>Año:</label>
+    <input class="controls" type="text" [(ngModel)]="estudio.anio">
+
+    <label>Institución:</label>
+    <input class="controls" type="text" [(ngModel)]="estudio.institucion" value="">
+
+    <label>Descripción:</label>
+    <input class="controls" type="text" [(ngModel)]="estudio.descripcion" value="">
+
+    <div class="container_botones mx-5">
+        <div class="row">
+            <div class="col-md-2">
+                <button (click)="guardaEstudio()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+            </div>
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-2">
+                <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+<div>
+    <h3>Id: {{estudio.id}} </h3>
+    <h3>Año: {{estudio.anio}}</h3>
+    <h3>Institucióm: {{estudio.institucion}}</h3>
+    <h3>Descripción: {{estudio.descripcion}}</h3>
+</div>
+-->

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
 import * as glob from 'src/global'; // importa variables globales
 import { Router } from '@angular/router';
+import { TitularService } from 'src/app/servicios/titular.service';
+import { TitularM } from 'src/Modelos/titular';
 
 @Component({
   selector: 'app-banner',
@@ -10,49 +11,21 @@ import { Router } from '@angular/router';
 })
 export class BannerComponent implements OnInit {
 
-  miPorfolio: any;
   controlColorTitular: number = 1;
-  muestra: boolean = glob.edicionHabilitada; 
-
-  constructor(private datosPorfolio:PorfolioService, private router: Router ) {
+  muestra: boolean = glob.edicionHabilitada;
+//  datosTitular: TitularM = new TitularM("", "", ""); // ?
+  datosTitular: TitularM | any;
+  
+  constructor(private datosPorfolio:TitularService, private router: Router ) {
   }
 
   ngOnInit(): void {
-    this.datosPorfolio.ObtenerDatos().subscribe(data => {
-      // console.log(data);
-      this.miPorfolio = data;
+    this.datosPorfolio.ObtenerTitular().subscribe(data => {
+      this.datosTitular = data;
     });
-    setInterval(() => this.CambiaColorTitular(), 400);
   }
 
-  navegavegaAEditaTitular(): void {
+  public navegavegaAEditaTitular(): void {
     this.router.navigate(['editaTitular']);
   }
-
-  private CambiaColorTitular() // cambia colores
-  {
-    const colorTexto_1: any = document.querySelector('#titular');
-  
-    switch(this.controlColorTitular) {
-      case 1:
-        colorTexto_1.style.color = 'blue';
-        this.controlColorTitular++;
-      break;
-      case 2:
-        colorTexto_1.style.color =  'white';
-        this.controlColorTitular++;
-      break;
-      case 3:
-        colorTexto_1.style.color = 'red';
-        this.controlColorTitular++;
-      break;
-      case 4:
-        colorTexto_1.style.color = 'greenYellow';
-        this.controlColorTitular = 1;
-      break;
-      default:
-        this.controlColorTitular = 1;
-      break;
-    }
-   } // function CambiaColorTitular()
- }
+}

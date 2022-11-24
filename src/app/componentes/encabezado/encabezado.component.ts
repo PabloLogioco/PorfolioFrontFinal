@@ -1,23 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as glob from 'src/global'; // importa variables globales
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-encabezado',
   templateUrl: './encabezado.component.html',
-  styleUrls: ['./encabezado.component.css']
+  styleUrls: ['./encabezado.component.css'],
+
+  animations: [ // metadatos para la animacion de la foto
+    trigger('animaciones', [
+      state('active', style( {
+        transform: 'translateX(30px)'
+       })),
+       state('inactive', style( {
+        transform: 'translateX(10px)'
+       })),
+       transition('inactive => active', animate('1000ms ease-in' )),
+       transition('active => inactive', animate('1000ms ease-out' ))
+    ])
+  ]
 })
 export class EncabezadoComponent implements OnInit {
-  
-//  titulo: string = "Proyecto final #YoProgramo 2022";
   titulo: string = glob.titulo;
   fecha: string = "";
   hora: string = "";
   logx: string = ""; // texto para el boton para logear y habilitar edicion
   cambioSegundos: boolean = true;
   BKSegundos: number = -1; // memoriza segundo actual 
-  muestra: boolean = glob.edicionHabilitada;
-  
+  muestra: boolean = glob.edicionHabilitada; // habilita ver paginas de edicion, sin modificar datos
+  editiTotal: boolean = glob.edicionTotal; // babilita edicion de datos
+  state: string = 'inactive'; // animacion del logo AP
+
   constructor( private router: Router) { 
   }
 
@@ -26,18 +40,29 @@ export class EncabezadoComponent implements OnInit {
     this.hora = this.ObtieneHora();
     setInterval(() => this.tick(), 300); // tick cada 300 mSegundos
     this.logx = glob.edicionHabilitada ? "LogOut" : "LogIn";
+  
+    setInterval( () => {
+      if(this.state == 'active') {
+        this.state = 'inactive';
+      }else {
+        this.state = 'active';
+      }
+    }, 1000);
   }
 
-  navegaALogin(): void {
+  public navegaALogin(): void {
     if (!glob.edicionHabilitada) {
       this.router.navigate(['login']);
     } else {
-      glob.setHabilitaEdicion(false);
-      location.reload(); // recarga la página
+      glob.setHabilitaEdicionPar(false);
+      glob.setHabilitaEdicionTotal(false);
+      /// location.reload(); // recarga la página
+      this.router.navigate(['loginOut']);
+
     }
   } // navegaALogin(): void  
 
-  navegavegaAAgregaEstudio(): void {
+  public navegavegaAAgregaEstudio(): void {
     this.router.navigate(['agregaEstudio']);
   }
 
