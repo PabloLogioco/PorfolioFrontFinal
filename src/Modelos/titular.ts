@@ -2,11 +2,11 @@ export class TitularM {
     id?: number; // no obligatorio, es automático
     nombre: string;
     titulo: string;
-    urlFoto: string;
+    url_foto: string;
     
-    constructor( nombre: string, titulo: string, urlfoto: string ) {
+    constructor( nombre: string, titulo: string, url_foto: string ) {
         this.nombre = nombre;
         this.titulo = titulo;
-        this.urlFoto = urlfoto;
+        this.url_foto = url_foto;
     }    
 }

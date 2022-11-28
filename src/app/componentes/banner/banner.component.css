@@ -1,6 +1,6 @@
 .nombretitular{
     text-align: left;
-    color: rgb(252, 6, 6);
+    color: rgb(248, 34, 34);
 }
 
 #fotoydatos{
@@ -31,5 +31,5 @@
 
 #foto_1{
     border-radius: 15px;
-    border: 3px solid black
+    border: 3px solid rgb(3, 56, 247)
 }

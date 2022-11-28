@@ -15,6 +15,8 @@ export class EditaProyectoComponent implements OnInit {
   listaProyectos: Proyecto | any; // toda la lista de proyectos
   proyecto: Proyecto | any; // el item proyecto a editar
   idAEditar: number = 0;  // ID del elemento a editar
+  nIntervId: any; // id para la funcion Interval
+  cargando: boolean = true; // marca final de carga de datos
 
   constructor( private datosBack:ProyectoService, private route: ActivatedRoute,
                private router2: Router ) { }
@@ -38,6 +40,7 @@ export class EditaProyectoComponent implements OnInit {
           this.proyecto = element;
         }
       }
+      this.nIntervId = setInterval(() => this.cargaTitular(), 2000); // emula tardanza de llegada de datos
     });
   }
 
@@ -50,4 +53,10 @@ export class EditaProyectoComponent implements OnInit {
   cancelar(): void {
     this.router2.navigate(['home']);
   } //   cancelar(): void {
+
+  private cargaTitular() { // emula tardanza de llegada de datos
+    clearInterval(this.nIntervId);   // release our intervalID from the variable
+    this.nIntervId = null;
+    this.cargando = false;
+  }
 }

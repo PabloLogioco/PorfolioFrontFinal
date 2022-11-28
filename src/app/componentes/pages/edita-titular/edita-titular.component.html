@@ -5,19 +5,19 @@
 
     <div *ngIf="cargando; else yaEstaCargado">
         <div>
-            <h3>Cargando...</h3>
+            <h3 class="etiqCarga">Cargando...</h3>
             <h1></h1>
-            <div class="spinner-border text-primary"></div>
+            <div class="spinner-border text-warning"></div>
         </div>
     </div>
 
     <ng-template #yaEstaCargado>
 
         <label>Titular:</label>
-        <input class="controls" type="text" [(ngModel)]="datosTitular[0].nombre">
+        <input class="controls" type="text" [(ngModel)]="datosTitular.nombre">
     
         <label>Titulo:</label>
-        <input class="controls" type="text" [(ngModel)]="datosTitular[0].titulo">
+        <input class="controls" type="text" [(ngModel)]="datosTitular.titulo">
     
         <label>Usuario:</label>
         <input class="controls" type="text" [(ngModel)]="datosLogNuevos.usuario">
@@ -26,7 +26,7 @@
         <input class="controls" type="text" [(ngModel)]="datosLogNuevos.contrasenia">
     
         <label>URL de la foto:</label>
-        <input class="controls" type="text" [(ngModel)]="datosTitular[0].url_foto">
+        <input class="controls" type="text" [(ngModel)]="datosTitular.url_foto">
 
         <div class="container_botones mx-5">
             <div class="row">

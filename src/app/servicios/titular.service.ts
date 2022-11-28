@@ -20,4 +20,9 @@ export class TitularService {
   public modificaTitular(tit: TitularM): Observable<any> {
     return this.http.put(this.URL + 'modificaTitular', tit);
   }
+/*
+  public getUrlFoto(): Observable<string> {
+    return this.http.get<string>(this.URL + 'getUrlFoto');
+  }
+*/
 }

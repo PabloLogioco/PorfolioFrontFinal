@@ -25,6 +25,8 @@ export class EncabezadoSimpleComponent implements OnInit {
 
   titulo: string = glob.titulo;
   state: string = 'inactive';
+  muestra: boolean = glob.edicionHabilitada; // habilita ver paginas de edicion, sin modificar datos
+  editiTotal: boolean = glob.edicionTotal; // babilita edicion de datos
 
   constructor() { }
 

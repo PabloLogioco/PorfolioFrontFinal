@@ -13,7 +13,7 @@ import { Login } from 'src/Modelos/login';
 })
 export class EditaTitularComponent implements OnInit {
 
-  datosTitular: TitularM | any; // debebe ser la clase TitularM
+  datosTitular: TitularM = new TitularM("", "", "");
   nIntervId: any; // id para la funcion Interval
   cargando: boolean = true; // marca final de carga de datos
   datosLogBD: Login | any; // deben ser de la clase Login
@@ -45,7 +45,7 @@ export class EditaTitularComponent implements OnInit {
 
   public editaTitular(): void {
     if(glob.edicionTotal) { // llama al servicio y rutea a home
-      this.datosBack.modificaTitular(this.datosTitular[0]).subscribe();
+      this.datosBack.modificaTitular(this.datosTitular).subscribe();
       this.datosLogNuevos.id = 1; // siempre es 1
       this.datosLogin.modificarLogin(this.datosLogNuevos).subscribe();
     }
@@ -56,7 +56,3 @@ export class EditaTitularComponent implements OnInit {
     this.router.navigate(['home']);
   } //   cancelar(): void {
 }
-
-
-
-

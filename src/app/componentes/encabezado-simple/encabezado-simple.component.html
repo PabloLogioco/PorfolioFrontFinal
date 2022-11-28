@@ -1,18 +1,33 @@
 <div class="container mx-0">  <!-- 1° capa contenedor de elemento, logo titulo y boton -->
     <div class="row">
-        <div [@animaciones]='state' class="col-md-4 my-1">  <!-- logo -->
-            <a>
-                <img src="../../../assets/imagenes/LogoAP.jpg" alt="logo" width="100" height="60" class="d-inline-block align-text-top" id="logo">
+        <div [@animaciones]='state' class="col-md-4 my-1"> <!-- logo -->
+            <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa">
+<!--        <img src="../../../assets/imagenes/LogoAP.jpg" alt="logo" width="100" height="60" class="d-inline-block align-text-top" id="logo">  -->
+            <img src="https://desa.argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1660276176/APLogo-20-20.png"
+                     alt="logo" width="100" height="60" class="d-inline-block align-text-top" id="logo1">
             </a>
-            <a>
-                <img src="../../../assets/imagenes/LogoINTI.png" alt="logo" width="100" height="60" class="d-inline-block align-text-top" id="logo">
+            <a href="https://www.argentina.gob.ar/inti">
+<!--        <img src="../../../assets/imagenes/LogoINTI.png" alt="logo" width="100" height="60" class="d-inline-block align-text-top" id="logo">    -->
+            <img src="data:image/jpeg;base64,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"
+                    alt="logo" width="100" height="60" class="d-inline-block align-text-top" id="logo2">
             </a>
-            <a>
-                <img src="../../../assets/imagenes/LogoME.png" alt="logo" width="130" height="60" class="d-inline-block align-text-top" id="logo">
+            <a href="https://www.argentina.gob.ar/economia">
+<!--            <img src="../../../assets/imagenes/LogoME.png" alt="logo" width="130" height="60" class="d-inline-block align-text-top" id="logo"> -->
+                <img src="https://www.argentina.gob.ar/sites/default/files/min_economia.png"
+                        alt="logo" width="130" height="60" class="d-inline-block align-text-top" id="logo3">
             </a>
         </div>
         <div class="col-md-8 texto_1 my-4" id="titulo_fecha">
             {{ titulo }}    <!-- solo el titulo -->
+            <ng-template [ngIf]="muestra">
+                <div id="cartelHab" *ngIf="editiTotal, then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                    <div class="cartelHab">¡ Edición habilitada !</div>
+                </ng-template>
+                <ng-template #elseBlock>
+                    <div class="cartelHab">¡ Puede observar la edición, sin modificar los datos !</div>
+                </ng-template>
+            </ng-template>
         </div> 
     </div>
 </div>

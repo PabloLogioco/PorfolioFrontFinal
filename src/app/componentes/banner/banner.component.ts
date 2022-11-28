@@ -13,15 +13,17 @@ export class BannerComponent implements OnInit {
 
   controlColorTitular: number = 1;
   muestra: boolean = glob.edicionHabilitada;
-//  datosTitular: TitularM = new TitularM("", "", ""); // ?
-  datosTitular: TitularM | any;
-  
+  datosTitular: TitularM = new TitularM("", "", "");
+
   constructor(private datosPorfolio:TitularService, private router: Router ) {
   }
 
   ngOnInit(): void {
     this.datosPorfolio.ObtenerTitular().subscribe(data => {
       this.datosTitular = data;
+//      console.log("Titular: " + this.datosTitular.nombre);
+//      console.log("Titulo: " + this.datosTitular.titulo);
+//      console.log("URL: " + this.datosTitular.url_foto);
     });
   }
 

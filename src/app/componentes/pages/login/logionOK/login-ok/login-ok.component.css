@@ -2,3 +2,8 @@ h1{
     color: white;
     text-decoration: none;
 }
+
+#logo{
+    border-radius: 50px;
+    border: 6px solid rgb(75, 247, 22);
+}

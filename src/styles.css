@@ -11,7 +11,8 @@ body{
     border: 3px solid rgb(22, 6, 243);
     width: 90%;
     height: 180px;
-    background-image: url(assets/imagenes/Fondo_Electronica_3.jpg);
+/*    background-image: url(assets/imagenes/Fondo_Electronica_3.jpg); */
+    background-image: url(https://www.ecured.cu/images/thumb/5/5c/Galaxiaa.jpg/800px-Galaxiaa.jpg);
     background-size: 100%;
     animation: movimiento 30s infinite linear alternate;
     margin-bottom: 10px;

@@ -3,28 +3,33 @@
 <section class="form-login">
     <h4>Formulario edita proyecto</h4>
     <h5></h5>
-    <label>Año:</label>
-    <input class="controls" type="text" [(ngModel)]="proyecto.anio">
 
-    <label>Descripción:</label>
-    <input class="controls" type="text" [(ngModel)]="proyecto.descripcion" value="">
-
-    <div class="container_botones mx-5">
-        <div class="row">
-            <div class="col-md-2">
-                <button (click)="guardaProyecto()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
-            </div>
-            <div class="col-md-8">
-            </div>
-            <div class="col-md-2">
-                <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
-            </div>
+    <div *ngIf="cargando; else yaEstaCargado">
+        <div>
+            <h3 class="etiqCarga">Cargando...</h3>
+            <h1></h1>
+            <div class="spinner-border text-warning"></div>
         </div>
     </div>
+
+    <ng-template #yaEstaCargado>
+        <label>Año:</label>
+        <input class="controls" type="text" [(ngModel)]="proyecto.anio">
+    
+        <label>Descripción:</label>
+        <input class="controls" type="text" [(ngModel)]="proyecto.descripcion" value="">
+    
+        <div class="container_botones mx-5">
+            <div class="row">
+                <div class="col-md-2">
+                    <button (click)="guardaProyecto()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
 </section>
-<!--
-<div>
-    <h3>Id: {{proyecto.id}} </h3>
-    <h3>Año: {{proyecto.anio}}</h3>
-    <h3>Descripción: {{proyecto.descripcion}}</h3>
-</div> -->
