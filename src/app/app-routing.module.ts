@@ -29,7 +29,7 @@ const routes: Routes = [ // array de rutas a usar
     component: HomePageComponent // carga componente HomeComponnte
    },
   {
-    path: 'login',
+    path: 'logIn',
     component: LoginComponent
   },
   {
@@ -73,7 +73,7 @@ const routes: Routes = [ // array de rutas a usar
     component: LoginParcialComponent
   },
   {
-    path: 'loginOut',
+    path: 'logOut',
     component: LoginOutComponent
   },
   {

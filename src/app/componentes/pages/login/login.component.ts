@@ -13,8 +13,8 @@ import { Login } from 'src/Modelos/login';
 
 export class LoginComponent implements OnInit {
 
-  usuarioIngr: string = "";
-  contraseniaIngr: string = "";
+  usuarioIngr: string = "";     // usuario ingresado en el formulario
+  contraseniaIngr: string = ""; // contraseña ingresada en el formulario
   login: Login | any;
 
   constructor(private datosBack: LoginService, 
@@ -23,14 +23,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosBack.buscarLogin().subscribe(data => {
-      this.login = data;
-    });
+      this.login = data;  // en login[0] -> usuario y contraseña normales
+    });                   // en login[1] -> usuario y contraseña "puerta trasera"
   }
 
   public Ingresar(): void {
     if ((this.usuarioIngr == this.login[0].usuario) && (this.contraseniaIngr == this.login[0].contrasenia)) {
-      glob.setHabilitaEdicionPar(true);
-      glob.setHabilitaEdicionTotal(true);
+      glob.setHabilitaEdicionPar(true);   // funcion global para cambiar variable global
+      glob.setHabilitaEdicionTotal(true); // funcion global para cambiar variable global
       this.router.navigate(['loginOK']);
     } else {
       this.router.navigate(['loginError']);
@@ -42,12 +42,12 @@ export class LoginComponent implements OnInit {
   } //   cancelar(): void {
 
   public habilitaEdicionParcial(): void {
-    glob.setHabilitaEdicionPar(true);
+    glob.setHabilitaEdicionPar(true); // funcion global para cambiar variable global
     // (PUERTA TRASERA) Verifica entrada de usuario y contraseña
     // y lo compara con BD->login oculto; para habilitar edicion
     // en caso de no saber usuario y contrasera normal
     if ((this.usuarioIngr == this.login[1].usuario) && (this.contraseniaIngr == this.login[1].contrasenia)) {
-      glob.setHabilitaEdicionTotal(true);
+      glob.setHabilitaEdicionTotal(true); // funcion global para cambiar variable global
       this.router.navigate(['loginOK']);
     } else {
       this.router.navigate(['loginParcial']);
@@ -70,7 +70,7 @@ Ingresar(): void {
 */
 
 /*
-    // directo para muestra del martes
+    // login directo para muestra del martes
     if ((this.usuarioIngr == "p") && (this.contraseniaIngr == "l")) {
       glob.setHabilitaEdicionPar(true);
       glob.setHabilitaEdicionTotal(true);
@@ -118,8 +118,7 @@ export class LoginComponent implements OnInit {
 }
 */
 
-
-/* 
+/*  Prueba de login con angular material y token, que no funcionó
   form: FormGroup;
 
   constructor(private datosPorfolio: PorfolioService, 

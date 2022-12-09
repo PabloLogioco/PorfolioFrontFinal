@@ -22,15 +22,14 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
   ]
 })
 export class EncabezadoComponent implements OnInit {
-  titulo: string = glob.titulo;
+  titulo: string = glob.titulo; // copia de variable global
   fecha: string = "";
   hora: string = "";
-  logx: string = ""; // texto para el boton para logear y habilitar edicion
-  cambioSegundos: boolean = true;
+  logx: string = ""; // texto para el boton login
   BKSegundos: number = -1; // memoriza segundo actual 
   muestra: boolean = glob.edicionHabilitada; // habilita ver paginas de edicion, sin modificar datos
   editiTotal: boolean = glob.edicionTotal; // babilita edicion de datos
-  state: string = 'inactive'; // animacion del logo AP
+  state: string = 'inactive'; // animacion del logos, estado inicial
 
   constructor( private router: Router) { 
   }
@@ -52,21 +51,16 @@ export class EncabezadoComponent implements OnInit {
 
   public navegaALogin(): void {
     if (!glob.edicionHabilitada) {
-      this.router.navigate(['login']);
+      this.router.navigate(['logIn']);
     } else {
       glob.setHabilitaEdicionPar(false);
       glob.setHabilitaEdicionTotal(false);
       /// location.reload(); // recarga la página
-      this.router.navigate(['loginOut']);
-
+      this.router.navigate(['logOut']);
     }
   } // navegaALogin(): void  
 
-  public navegavegaAAgregaEstudio(): void {
-    this.router.navigate(['agregaEstudio']);
-  }
-
-  private tick(): void {
+  private tick(): void { // actualiza fecha, hora...
     let fechaDate: Date = new Date();
     let segundos: number = fechaDate.getSeconds();
 
@@ -106,3 +100,4 @@ export class EncabezadoComponent implements OnInit {
     return hora + ":" + minutosS + ":" + segundosS;
   } // function ObtieneHora()
 }
+
