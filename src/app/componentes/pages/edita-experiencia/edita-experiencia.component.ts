@@ -47,7 +47,7 @@ export class EditaExperienciaComponent implements OnInit {
     if(glob.edicionTotal) {      // guarda item ingresado en BD.
       this.datosBack.modificaExperiencia(this.experiencia).subscribe();
     }
-    this.router2.navigate(['home']);
+    this.router2.navigate(['actualizaBD']);
   } //   guardaEstudio(): void {
 
   cancelar(): void {

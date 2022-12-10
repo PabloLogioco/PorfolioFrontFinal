@@ -47,7 +47,7 @@ export class EditaProyectoComponent implements OnInit {
   guardaProyecto(): void {
     if(glob.edicionTotal) {      // guarda item ingresado en BD.
       this.datosBack.modificaProyecto(this.proyecto).subscribe();    }
-    this.router2.navigate(['home']);
+    this.router2.navigate(['actualizaBD']);
   } //   guardaProyecto(): void {
 
   cancelar(): void {

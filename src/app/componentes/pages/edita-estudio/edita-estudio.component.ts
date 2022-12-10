@@ -47,7 +47,7 @@ export class EditaEstudioComponent implements OnInit {
     if(glob.edicionTotal) {
       this.datosBack.modificaEstudio(this.estudio).subscribe();
     }
-    this.router2.navigate(['home']);
+    this.router2.navigate(['actualizaBD']);
   } //   guardaEstudio(): void {
 
   cancelar(): void {

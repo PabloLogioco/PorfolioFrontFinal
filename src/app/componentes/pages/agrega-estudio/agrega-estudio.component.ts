@@ -23,7 +23,7 @@ export class AgregaEstudioComponent implements OnInit {
       console.log(this.nuevoEstudio);
       this.datosBack.newEstudio(this.nuevoEstudio).subscribe();
     }
-    this.router.navigate(['home']);
+    this.router.navigate(['actualizaBD']);
   } //   editaTitular(): void {
 
   public cancelar(): void {

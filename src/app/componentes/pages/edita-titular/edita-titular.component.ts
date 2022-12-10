@@ -49,7 +49,7 @@ export class EditaTitularComponent implements OnInit {
       this.datosLogNuevos.id = 1; // siempre es 1
       this.datosLogin.modificarLogin(this.datosLogNuevos).subscribe();
     }
-    this.router.navigate(['home']);
+    this.router.navigate(['actualizaBD']);
   } //   editaTitular(): void {
 
   public cancelar(): void { // rutea a home

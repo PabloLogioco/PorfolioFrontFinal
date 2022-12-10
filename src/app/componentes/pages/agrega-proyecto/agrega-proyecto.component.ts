@@ -22,7 +22,7 @@ export class AgregaProyectoComponent implements OnInit {
     if(glob.edicionTotal) {      // agrega item ingresado
       this.datosBack.newProyecto(this.nuevoProyecto).subscribe();
     }
-    this.router.navigate(['home']);
+    this.router.navigate(['actualizaBD']);
   } //   editaTitular(): void {
 
   cancelar(): void {

@@ -17,6 +17,7 @@ import { LoginOKComponent } from './componentes/pages/login/logionOK/login-ok/lo
 import { LoginErrorComponent } from './componentes/pages/login/login-error/login-error.component';
 import { LoginParcialComponent } from './componentes/pages/login/login-parcial/login-parcial.component';
 import { LoginOutComponent } from './componentes/pages/login/login-out/login-out.component';
+import { ActualizaBDComponent } from './componentes/pages/actualiza-bd/actualiza-bd.component';
 
 const routes: Routes = [ // array de rutas a usar
   {
@@ -79,6 +80,10 @@ const routes: Routes = [ // array de rutas a usar
   {
     path: 'eliminaItem',
     component: EliminaItemComponent
+  },
+  {
+    path: 'actualizaBD',
+    component: ActualizaBDComponent
   },
   {
     path: '**',  /// si no encuentra la ruta carga la home

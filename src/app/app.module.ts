@@ -29,6 +29,7 @@ import { EliminaItemComponent } from './componentes/pages/elimina-item/elimina-i
 import { LoginErrorComponent } from './componentes/pages/login/login-error/login-error.component';
 import { LoginParcialComponent } from './componentes/pages/login/login-parcial/login-parcial.component';
 import { LoginOutComponent } from './componentes/pages/login/login-out/login-out.component';
+import { ActualizaBDComponent } from './componentes/pages/actualiza-bd/actualiza-bd.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LoginOutComponent } from './componentes/pages/login/login-out/login-out
     EliminaItemComponent,
     LoginErrorComponent,
     LoginParcialComponent,
-    LoginOutComponent
+    LoginOutComponent,
+    ActualizaBDComponent
   ],
   imports: [
     BrowserModule,

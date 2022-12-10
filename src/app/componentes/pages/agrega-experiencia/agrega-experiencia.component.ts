@@ -23,7 +23,7 @@ export class AgregaExperienciaComponent implements OnInit {
     if(glob.edicionTotal) {      // agrega item ingresado
       this.datosBack.newExperiencia(this.nuevaExperiencia).subscribe();
     }
-    this.router.navigate(['home']);
+    this.router.navigate(['actualizaBD']);
   } //   editaTitular(): void {
 
   cancelar(): void {
