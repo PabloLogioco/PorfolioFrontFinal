@@ -33,7 +33,6 @@
     
             <tbody id="datos_estudios">
                 <tr *ngFor="let estudio of listaEstudios">
-                    <!-- datos venen del json -->
                     <div *ngIf="muestra; then thenBlock else elseBlock"></div>
                     <ng-template #thenBlock>
     
@@ -47,7 +46,6 @@
                             id="eliminaEst">Borrar</button>
     
                     </ng-template>
-    
                     <ng-template #elseBlock>
                         <td>{{estudio.anio}}</td>
                         <td>{{estudio.institucion}}</td>

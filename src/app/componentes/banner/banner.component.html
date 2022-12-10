@@ -1,20 +1,34 @@
 <div class="container_banner mx-5">
     <div class="row" id="fotoydatos">    <!-- 2° capa. Banner, foto de fondo, imagen de electronica -->
-        <div class="col-md-1" id="foto_titular">
-        <!-- foto -->
-<!--    <img src="../../../assets/imagenes/MiFoto.jpg"  -->
-<!--    <img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/136255/user/icon/moove/f2?rev=224919" -->
-            <img src={{datosTitular.url_foto}}  
-                 alt="foto" width="75" height="70" id="foto_1" class="img-fluid">  
+
+
+        <div *ngIf="cargando; else yaEstaCargado">
+            <div>
+                <h3 class="etiqCarga">Cargando...</h3>
+                <h1></h1>
+                <div class="spinner-border text-warning"></div>
+                <h1></h1>
+            </div>
         </div>
-        <div id="titular" class="col-md-11 nombretitular my-2">
-            <!-- datos titular -->
-            <h4>{{datosTitular.nombre}}</h4>
-            <h4>{{datosTitular.titulo}}</h4>
-            <ng-template [ngIf]="muestra">
-                <button (click)="navegavegaAEditaTitular()" class="btn btn-outline-primary btn-sm"
-                    id="editTitular">Edit</button>
-            </ng-template>
-        </div>
+        
+        <ng-template #yaEstaCargado>
+    
+            <div class="col-md-1" id="foto_titular">  <!-- foto -->
+                <!--    <img src="../../../assets/imagenes/MiFoto.jpg"  -->
+                <!--    <img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/136255/user/icon/moove/f2?rev=224919" -->
+                            <img src={{datosTitular.url_foto}}  
+                                 alt="foto" width="75" height="70" id="foto_1" class="img-fluid">  
+                        </div>
+                        <div id="titular" class="col-md-11 nombretitular my-2"> <!-- datos titular -->
+                            <h4>{{datosTitular.nombre}}</h4>
+                            <h4>{{datosTitular.titulo}}</h4>
+                            <ng-template [ngIf]="muestra">
+                                <button (click)="navegavegaAEditaTitular()" class="btn btn-outline-primary btn-sm"
+                                    id="editTitular">Edit</button>
+                            </ng-template>
+                        </div>
+                
+        </ng-template>
+
     </div>
 </div>
