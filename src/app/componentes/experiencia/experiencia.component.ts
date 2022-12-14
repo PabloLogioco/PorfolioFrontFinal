@@ -24,7 +24,7 @@ export class ExperienciaComponent implements OnInit {
     this.datosBack.ObtenerExperiencias().subscribe(data => {
       this.listaExperiencia = data;
     });
-    this.nIntervId = setInterval(() => this.cargaExperiencia(), 2500); // emula llegada de datos
+    this.nIntervId = setInterval(() => this.cargaExperiencia(), 1000); // emula llegada de datos
   }
 
   public navegavegaAAgregaExperiencia(): void {

@@ -24,7 +24,7 @@ export class ProyectosComponent implements OnInit {
       // console.log(data);
       this.listaProyectos = data;
     });
-    this.nIntervId = setInterval(() => this.cargaProyectos(), 3000); // emula llegada de datos
+    this.nIntervId = setInterval(() => this.cargaProyectos(), 1000); // emula llegada de datos
   }
 
   public navegavegaAAgregaProyecto(): void {

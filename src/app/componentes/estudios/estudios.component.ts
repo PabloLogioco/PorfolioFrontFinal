@@ -23,7 +23,7 @@ export class EstudiosComponent implements OnInit {
     this.datosBack.ObtenerEstudios().subscribe(data => {
       this.listaEstudios = data;
     });
-    this.nIntervId = setInterval(() => this.cargaEstudios(), 1500); // emula llegada de datos
+    this.nIntervId = setInterval(() => this.cargaEstudios(), 1000); // emula llegada de datos
   }
 
   public navegaAgregaEstudio(): void {

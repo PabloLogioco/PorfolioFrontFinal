@@ -30,6 +30,8 @@ import { LoginErrorComponent } from './componentes/pages/login/login-error/login
 import { LoginParcialComponent } from './componentes/pages/login/login-parcial/login-parcial.component';
 import { LoginOutComponent } from './componentes/pages/login/login-out/login-out.component';
 import { ActualizaBDComponent } from './componentes/pages/actualiza-bd/actualiza-bd.component';
+import { SkillsComponent } from './componentes/skills/skills.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { ActualizaBDComponent } from './componentes/pages/actualiza-bd/actualiza
     LoginErrorComponent,
     LoginParcialComponent,
     LoginOutComponent,
-    ActualizaBDComponent
+    ActualizaBDComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { ActualizaBDComponent } from './componentes/pages/actualiza-bd/actualiza
     HttpClientModule, // para peticiones HTPP
     BrowserAnimationsModule,  //
     ReactiveFormsModule,    // formularios reactivos
-    MaterialModule // módulo personalizado de angular material
+    MaterialModule, // módulo personalizado de angular material
+    NgCircleProgressModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]

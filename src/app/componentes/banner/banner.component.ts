@@ -14,7 +14,7 @@ export class BannerComponent implements OnInit {
   controlColorTitular: number = 1;
   muestra: boolean = glob.edicionHabilitada;
   datosTitular: TitularM = new TitularM("", "", "");
-  cargando: boolean = true;
+  fotoCargada: boolean = false;
   nIntervId: any;
 
   constructor(private datosPorfolio:TitularService, private router: Router ) {
@@ -27,16 +27,16 @@ export class BannerComponent implements OnInit {
 //      console.log("Titulo: " + this.datosTitular.titulo);
 //      console.log("URL: " + this.datosTitular.url_foto);
     });
-    this.nIntervId = setInterval(() => this.cargaEstudios(), 1000); // emula llegada de datos
+    this.nIntervId = setInterval(() => this.finCargaFoto(), 1000); // emula llegada de datos
   }
 
   public navegavegaAEditaTitular(): void {
     this.router.navigate(['editaTitular']);
   }
 
-  public cargaEstudios() {  // emula llegada de datos
+  public finCargaFoto() {  // emula llegada de datos
     clearInterval(this.nIntervId);  // release our intervalID from the variable
     this.nIntervId = null;
-    this.cargando = false;
+    this.fotoCargada = true;
   }
 }
