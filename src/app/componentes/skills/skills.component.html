@@ -11,63 +11,79 @@
     <div class="row">
         <div class="text-center col-md-3 my-1">
             <circle-progress
-                [title]="skills_1.titulo"
-                [percent]="skills_1.valor"
-                [subtitle]="skills_1.valor+'%'"
+                [title]="listaSkills[0].titulo"
+                [percent]="listaSkills[0].valor"
+                [subtitle]="listaSkills[0].valor+'%'"
                 [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#78C000'"
                 [innerStrokeColor]="'#C7E596'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[0].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
         <div class="text-center col-md-3 my-1">
             <circle-progress
-                [title]="skills_2.titulo"
-                [percent]="skills_2.valor"
-                [subtitle]="skills_2.valor+'%'"
-                [radius]="80"
+                [title]="listaSkills[1].titulo"
+                [percent]="listaSkills[1].valor"
+                [subtitle]="listaSkills[1].valor+'%'"
+                [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#f406dc'"
                 [innerStrokeColor]="'#f59bec'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[1].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
         <div class="text-center col-md-3 my-1">
             <circle-progress
-                [title]="skills_3.titulo"
-                [percent]="skills_3.valor"
-                [subtitle]="skills_3.valor+'%'"
-                [radius]="80"
+                [title]="listaSkills[2].titulo"
+                [percent]="listaSkills[2].valor"
+                [subtitle]="listaSkills[2].valor+'%'"
+                [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#3ac0f5'"
                 [innerStrokeColor]="'#ace2f8'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[2].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
         <div class="text-center col-md-3 my-1">
             <circle-progress
-                [title]="skills_4.titulo"
-                [percent]="skills_4.valor"
-                [subtitle]="skills_4.valor+'%'"
-                [radius]="80"
+                [title]="listaSkills[3].titulo"
+                [percent]="listaSkills[3].valor"
+                [subtitle]="listaSkills[3].valor+'%'"
+                [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#fce805'"
                 [innerStrokeColor]="'#f0f09d'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[3].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
     </div>
 </div>
@@ -75,63 +91,79 @@
     <div class="row">
         <div class="text-center col-md-3 my-1">
             <circle-progress
-                [title]="skills_5.titulo"
-                [percent]="skills_5.valor"
-                [subtitle]="skills_5.valor+'%'"
-                [radius]="80"
+                [title]="listaSkills[4].titulo"
+                [percent]="listaSkills[4].valor"
+                [subtitle]="listaSkills[4].valor+'%'"
+                [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#78C000'"
                 [innerStrokeColor]="'#C7E596'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[4].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
         <div class="text-center col-md-3 my-1">
             <circle-progress class="circulo1"
-                [title]="skills_6.titulo"
-                [percent]="skills_6.valor"
-                [subtitle]= "skills_6.valor+'%'"
-                [radius]="80"
+                [title]="listaSkills[5].titulo"
+                [percent]="listaSkills[5].valor"
+                [subtitle]= "listaSkills[5].valor+'%'"
+                [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#f406dc'"
                 [innerStrokeColor]="'#f59bec'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[5].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
         <div class="text-center col-md-3 my-1">
             <circle-progress
-                [title]="skills_7.titulo"
-                [percent]="skills_7.valor"
-                [subtitle]="skills_7.valor+'%'"
-                [radius]="80"
+                [title]="listaSkills[6].titulo"
+                [percent]="listaSkills[6].valor"
+                [subtitle]="listaSkills[6].valor+'%'"
+                [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#3ac0f5'"
                 [innerStrokeColor]="'#ace2f8'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[6].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
         <div class="text-center col-md-3 my-1">
             <circle-progress
-                [title]="skills_8.titulo"
-                [percent]="skills_8.valor"
-                [subtitle]="skills_8.valor+'%'"
-                [radius]="80"
+                [title]="listaSkills[7].titulo"
+                [percent]="listaSkills[7].valor"
+                [subtitle]="listaSkills[7].valor+'%'"
+                [radius]="65"
                 [outerStrokeWidth]="16"
                 [innerStrokeWidth]="8"
                 [outerStrokeColor]="'#fce805'"
                 [innerStrokeColor]="'#f0f09d'"
                 [animation]="true"
-                [animationDuration]="1200"
+                [animationDuration]="animacion"
                 [titleColor]="'white'"
             ></circle-progress>
+            <ng-template [ngIf]="edicionOK">
+                <button (click)="navegaAEditaSkills(listaSkills[7].id)" class="btn btn-outline-primary btn-sm"
+                    id="editProy">Edit</button>
+            </ng-template>
         </div>
     </div>
 </div>

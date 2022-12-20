@@ -1,0 +1,18 @@
+h1 {
+    color: yellow;
+}
+
+#titulo {
+    color: white;
+    margin-left: 50px;
+}
+
+#tituloPagina {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+#editProy {
+    margin-left: 10px;
+}

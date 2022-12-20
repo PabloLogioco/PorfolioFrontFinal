@@ -32,6 +32,7 @@ import { LoginOutComponent } from './componentes/pages/login/login-out/login-out
 import { ActualizaBDComponent } from './componentes/pages/actualiza-bd/actualiza-bd.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { EditaSkillsComponent } from './componentes/pages/edita-skills/edita-skills.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     LoginParcialComponent,
     LoginOutComponent,
     ActualizaBDComponent,
-    SkillsComponent
+    SkillsComponent,
+    EditaSkillsComponent
   ],
   imports: [
     BrowserModule,

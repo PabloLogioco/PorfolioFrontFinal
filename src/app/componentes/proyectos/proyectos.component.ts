@@ -12,7 +12,7 @@ import { Proyecto } from 'src/Modelos/proyecto';
 export class ProyectosComponent implements OnInit {
 
   listaProyectos: Proyecto | any;
-  muestra: boolean = glob.edicionHabilitada; 
+  edicionOK: boolean = glob.edicionHabilitada; 
   nIntervId: any;
   cargando: boolean = true;
 

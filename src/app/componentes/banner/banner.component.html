@@ -15,7 +15,7 @@
             <div id="titular" class="col-md-11 nombretitular my-2"> <!-- datos titular -->
                 <h4>{{datosTitular.nombre}}</h4>
                 <h4>{{datosTitular.titulo}}</h4>
-                <ng-template [ngIf]="muestra">
+                <ng-template [ngIf]="edicionOK">
                     <button (click)="navegavegaAEditaTitular()" class="btn btn-outline-primary btn-sm"
                         id="editTitular">Edit</button>
                 </ng-template>

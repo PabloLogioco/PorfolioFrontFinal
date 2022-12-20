@@ -12,7 +12,7 @@ import { Estudio } from 'src/Modelos/estudio';
 export class EstudiosComponent implements OnInit {
 
   listaEstudios: Estudio | any;
-  muestra: boolean = glob.edicionHabilitada; 
+  edicionOK: boolean = glob.edicionHabilitada; 
   nIntervId: any;
   cargando: boolean = true;
 

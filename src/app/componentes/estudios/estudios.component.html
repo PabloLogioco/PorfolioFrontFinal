@@ -4,7 +4,7 @@
             <h3 id="titulo_est">Estudios</h3>
         </div>
         <div class="col-md-1 my-1">
-            <ng-template [ngIf]="muestra">
+            <ng-template [ngIf]="edicionOK">
                 <button (click)="navegaAgregaEstudio()" class="btn btn-outline-primary btn-sm" id="agregaEstudio">Agregar</button>
             </ng-template>
         </div>
@@ -33,8 +33,8 @@
     
             <tbody id="datos_estudios">
                 <tr *ngFor="let estudio of listaEstudios">
-                    <div *ngIf="muestra; then thenBlock else elseBlock"></div>
-                    <ng-template #thenBlock>
+                    <div *ngIf="edicionOK; then conEdicion else sinEdicion"></div>
+                    <ng-template #conEdicion>
     
                         <td>{{estudio.anio}}</td>
                         <td>{{estudio.institucion}}</td>
@@ -46,7 +46,7 @@
                             id="eliminaEst">Borrar</button>
     
                     </ng-template>
-                    <ng-template #elseBlock>
+                    <ng-template #sinEdicion>
                         <td>{{estudio.anio}}</td>
                         <td>{{estudio.institucion}}</td>
                         <td>{{estudio.descripcion}}</td>

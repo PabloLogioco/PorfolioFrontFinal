@@ -4,7 +4,7 @@
             <h3 id="titulo_proy">Proyectos</h3>
         </div>
         <div class="col-md-1 my-1">
-            <ng-template [ngIf]="muestra">
+            <ng-template [ngIf]="edicionOK">
                 <button (click)="navegavegaAAgregaProyecto()" class="btn btn-outline-primary btn-sm" id="agregaProy">Agregar</button>
             </ng-template>
         </div>
@@ -34,7 +34,7 @@
                     <!-- datos venen del json -->
                     <td>{{item.anio}}</td>
                     <td>{{item.descripcion}}</td>
-                    <ng-template [ngIf]="muestra">
+                    <ng-template [ngIf]="edicionOK">
                         <button (click)="navegaAEditaProyecto(item.id)" class="btn btn-outline-primary btn-sm"
                             id="editProy">Edit</button>
                         <button (click)="borraProyecto(item.id)" class="btn btn-outline-danger btn-sm"

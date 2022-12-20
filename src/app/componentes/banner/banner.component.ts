@@ -12,7 +12,7 @@ import { TitularM } from 'src/Modelos/titular';
 export class BannerComponent implements OnInit {
 
   controlColorTitular: number = 1;
-  muestra: boolean = glob.edicionHabilitada;
+  edicionOK: boolean = glob.edicionHabilitada;
   datosTitular: TitularM = new TitularM("", "", "");
   fotoCargada: boolean = false;
   nIntervId: any;

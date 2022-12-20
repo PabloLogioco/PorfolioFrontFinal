@@ -13,7 +13,7 @@ import { Experiencia } from 'src/Modelos/experiencia';
 export class ExperienciaComponent implements OnInit {
 
   listaExperiencia: Experiencia | any;
-  muestra: boolean = glob.edicionHabilitada; 
+  edicionOK: boolean = glob.edicionHabilitada; 
   nIntervId: any;
   cargando: boolean = true;
 

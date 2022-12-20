@@ -1,0 +1,49 @@
+<app-encabezado-simple></app-encabezado-simple>
+<h1></h1>
+<h1></h1>
+<h1 id="tituloPagina">Edicion de Skills</h1>
+<h1></h1>
+<h1></h1>
+<div class="row">
+    <div class="text-center col-md-2 my-1">
+        <h1></h1>
+        <label id="titulo">Pordentaje</label>
+        <button (click)="suma()" class="btn btn-outline-primary btn-sm" id="editProy">+</button>
+        <button (click)="resta()" class="btn btn-outline-primary btn-sm" id="editProy">-</button>
+        <h1></h1>
+        <label id="titulo">Titulo:</label>
+        <input class="controls" type="text" [(ngModel)]="skills.titulo" value="">
+        <h1></h1>
+
+
+        <div class="container_botones mx-5">
+            <div class="row">
+                <div class="col-md-2">
+                    <button (click)="guardaSkills()" type="button" class="btn btn-outline-primary btn-sm" >OK</button>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <button (click)="cancelar()" type="button" class="btn btn-outline-danger btn-sm" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center col-md-4 my-1">
+        <circle-progress
+                [title]="skills.titulo"
+                [percent]="skills.valor"
+                [subtitle]="skills.valor+'%'"
+                [radius]="65"
+                [outerStrokeWidth]="16"
+                [innerStrokeWidth]="8"
+                [outerStrokeColor]="'#78C000'"
+                [innerStrokeColor]="'#C7E596'"
+                [animation]="true"
+                [animationDuration]="100"
+                [titleColor]="'white'"
+        ></circle-progress>
+    </div>
+    <div class="text-center col-md-6 my-1">
+    </div>
+</div>

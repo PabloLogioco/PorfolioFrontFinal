@@ -4,7 +4,7 @@
             <h3 id="titulo_exp">Experiencia</h3>
         </div>
         <div class="col-md-1 my-1">
-            <ng-template [ngIf]="muestra">
+            <ng-template [ngIf]="edicionOK">
                 <button (click)="navegavegaAAgregaExperiencia()" class="btn btn-outline-primary btn-sm" id="agregaExp">Agregar</button>
             </ng-template>
         </div>
@@ -40,7 +40,7 @@
                     <td>{{item.hasta}}</td>
                     <td>{{item.empresa}}</td>
                     <td>{{item.descripcion}}</td>
-                    <ng-template [ngIf]="muestra">
+                    <ng-template [ngIf]="edicionOK">
                         <button (click)="navegaAEditaExperiencia(item.id)" class="btn btn-outline-primary btn-sm"
                             id="editExp">Edit</button>
                         <button (click)="borraExperiencia(item.id)" class="btn btn-outline-danger btn-sm"

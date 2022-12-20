@@ -18,6 +18,7 @@ import { LoginErrorComponent } from './componentes/pages/login/login-error/login
 import { LoginParcialComponent } from './componentes/pages/login/login-parcial/login-parcial.component';
 import { LoginOutComponent } from './componentes/pages/login/login-out/login-out.component';
 import { ActualizaBDComponent } from './componentes/pages/actualiza-bd/actualiza-bd.component';
+import { EditaSkillsComponent } from './componentes/pages/edita-skills/edita-skills.component';
 
 const routes: Routes = [ // array de rutas a usar
   {
@@ -62,6 +63,10 @@ const routes: Routes = [ // array de rutas a usar
     component: EditaProyectoComponent
   },
   {
+    path: 'editaSkills/:id', // con parametro id
+    component: EditaSkillsComponent
+  },
+   {
     path: 'loginOK',
     component: LoginOKComponent
   },
