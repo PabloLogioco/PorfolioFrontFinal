@@ -8,4 +8,11 @@
 
 .texto_E {
     text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+
+#spiner1 {
+    margin-top: 50px;
+    margin-bottom: 30px;
 }

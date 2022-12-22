@@ -1,4 +1,10 @@
 .texto_E {
-    text-align: center;
     color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#spiner1 {
+    margin-top: 50px;
 }

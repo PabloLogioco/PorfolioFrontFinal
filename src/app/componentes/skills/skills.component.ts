@@ -9,6 +9,7 @@ import { SkillsService } from 'src/app/servicios/skills.service';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
+
 export class SkillsComponent implements OnInit {
 
   edicionOK: boolean = glob.edicionHabilitada; 
@@ -29,14 +30,3 @@ export class SkillsComponent implements OnInit {
     this.router.navigate(['editaSkills', id]);
   }
 }
-
-/*
-  skills_0: Skills = new Skills("HTML", 70);  
-  skills_1: Skills = new Skills("CCS", 75);  
-  skills_2: Skills = new Skills("Angular", 60);  
-  skills_3: Skills = new Skills("Spring", 50);  
-  skills_4: Skills = new Skills("C++", 90);  
-  skills_5: Skills = new Skills("TypeScript", 65);  
-  skills_6: Skills = new Skills("Java", 65);  
-  skills_7: Skills = new Skills("GIT", 70);  
-*/

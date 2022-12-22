@@ -5,14 +5,24 @@ h1 {
 #titulo {
     color: white;
     margin-left: 50px;
+    margin-top: 30px;
 }
 
 #tituloPagina {
     display: flex;
     justify-content: center;
     color: white;
+    margin-top: 50px;
 }
 
 #editProy {
+    margin-left: 10px;
+}
+
+#columnaPpal {
+    margin-top: 50px;
+}
+
+#cajaTexto {
     margin-left: 10px;
 }
