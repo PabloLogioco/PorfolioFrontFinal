@@ -13,18 +13,23 @@ export class ProyectosComponent implements OnInit {
 
   listaProyectos: Proyecto | any;
   edicionOK: boolean = glob.edicionHabilitada; 
-  nIntervId: any;
   cargando: boolean = true;
 
   constructor(private datosBack:ProyectoService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.datosBack.ObtenerProyectos().subscribe(data => {
-      // console.log(data);
-      this.listaProyectos = data;
-    });
-    this.nIntervId = setInterval(() => this.cargaProyectos(), 1000); // emula llegada de datos
+    this.datosBack.ObtenerProyectos().subscribe(
+      { next: data => {
+          this.listaProyectos = data;
+          console.log("Datos de Proyectos OK");
+          this.cargando = false;
+        },
+        error: _err => {
+          console.log("Error en datos de Proyectos");
+        }
+      }
+    );
   }
 
   public navegavegaAAgregaProyecto(): void {
@@ -40,11 +45,5 @@ export class ProyectosComponent implements OnInit {
       this.datosBack.borraProyecto(id).subscribe(); // elimina item en la BD.
     }
     this.router.navigate(['eliminaItem']);
-  }
-
-  public cargaProyectos() {
-    clearInterval(this.nIntervId);    // release our intervalID from the variable
-    this.nIntervId = null;
-    this.cargando = false;
   }
 }

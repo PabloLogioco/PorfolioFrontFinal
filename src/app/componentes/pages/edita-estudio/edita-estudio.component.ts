@@ -15,7 +15,6 @@ export class EditaEstudioComponent implements OnInit {
   listaEstudios: Estudio | any; // toda la lista de estudios
   estudio: Estudio | any; // el item estudio a editar
   idAEditar: number = 0;  // ID del elemento a editar
-  nIntervId: any; // id para la funcion Interval
   cargando: boolean = true; // marca final de carga de datos
   
   constructor( private datosBack:EstudioService, private route: ActivatedRoute,
@@ -30,17 +29,23 @@ export class EditaEstudioComponent implements OnInit {
       }
     )
 
-    this.datosBack.ObtenerEstudios().subscribe(data => {
-      this.listaEstudios = data;
-
-      for (let index = 0; index < this.listaEstudios.length; index++) { // busca elemento a editar
-        const element = this.listaEstudios[index];
-        if(element.id == this.idAEditar) {
-          this.estudio = element;
+    this.datosBack.ObtenerEstudios().subscribe(
+      { next: data => {
+          this.listaEstudios = data;
+          for (let index = 0; index < this.listaEstudios.length; index++) { // busca elemento a editar
+            const element = this.listaEstudios[index];
+            if(element.id == this.idAEditar) {
+              this.estudio = element;
+            }
+          }
+          console.log("Datos de Estudio OK");
+          this.cargando = false;
+        },
+        error: _err => {
+          console.log("Error en datos de Estudio");
         }
       }
-    });
-    this.nIntervId = setInterval(() => this.cargaTitular(), 2000); // emula tardanza de llegada de datos
+    );
   }
 
   guardaEstudio(): void {
@@ -53,10 +58,4 @@ export class EditaEstudioComponent implements OnInit {
   cancelar(): void {
     this.router2.navigate(['home']);
   } //   cancelar(): void {
-
-  private cargaTitular() { // emula tardanza de llegada de datos
-    clearInterval(this.nIntervId);   // release our intervalID from the variable
-    this.nIntervId = null;
-    this.cargando = false;
-  }
 }

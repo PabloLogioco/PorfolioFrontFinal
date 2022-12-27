@@ -14,17 +14,23 @@ export class ExperienciaComponent implements OnInit {
 
   listaExperiencia: Experiencia | any;
   edicionOK: boolean = glob.edicionHabilitada; 
-  nIntervId: any;
   cargando: boolean = true;
 
   constructor(private datosBack:ExperienciaService, private router: Router ) {
   }
 
   ngOnInit(): void {
-    this.datosBack.ObtenerExperiencias().subscribe(data => {
-      this.listaExperiencia = data;
-    });
-    this.nIntervId = setInterval(() => this.cargaExperiencia(), 1000); // emula llegada de datos
+    this.datosBack.ObtenerExperiencias().subscribe(
+      { next: data => {
+          this.listaExperiencia = data;
+          console.log("Datos de Experiencias OK");
+          this.cargando = false;
+        },
+        error: _err => {
+          console.log("Error en datos de Experiencias");
+        }
+      }
+    );
   }
 
   public navegavegaAAgregaExperiencia(): void {
@@ -40,11 +46,5 @@ export class ExperienciaComponent implements OnInit {
       this.datosBack.borraExperiencia(id).subscribe(); // elimina item en la BD.
     }
     this.router.navigate(['eliminaItem']);
-  }
-
-  private cargaExperiencia() {
-    clearInterval(this.nIntervId);    // release our intervalID from the variable
-    this.nIntervId = null;
-    this.cargando = false;
   }
 }

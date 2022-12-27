@@ -13,17 +13,23 @@ export class EstudiosComponent implements OnInit {
 
   listaEstudios: Estudio | any;
   edicionOK: boolean = glob.edicionHabilitada; 
-  nIntervId: any;
   cargando: boolean = true;
 
   constructor(private datosBack:EstudioService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.datosBack.ObtenerEstudios().subscribe(data => {
-      this.listaEstudios = data;
-    });
-    this.nIntervId = setInterval(() => this.cargaEstudios(), 1000); // emula llegada de datos
+    this.datosBack.ObtenerEstudios().subscribe(
+      { next: data => {
+          this.listaEstudios = data;
+          console.log("Datos de Estudios OK");
+          this.cargando = false;
+        },
+        error: _err => {
+          console.log("Error en datos de Estudios");
+        }
+      },
+    );
   }
 
   public navegaAgregaEstudio(): void {
@@ -39,11 +45,5 @@ export class EstudiosComponent implements OnInit {
       this.datosBack.borraEstudio(id).subscribe(); // elimina item en la BD.
     }
     this.router.navigate(['eliminaItem']);
-  }
-
-  public cargaEstudios() {  // emula llegada de datos
-    clearInterval(this.nIntervId);  // release our intervalID from the variable
-    this.nIntervId = null;
-    this.cargando = false;
   }
 }

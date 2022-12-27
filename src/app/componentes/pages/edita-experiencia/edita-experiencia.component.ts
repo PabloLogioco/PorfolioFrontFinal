@@ -15,7 +15,6 @@ export class EditaExperienciaComponent implements OnInit {
   listaExperiencia: Experiencia | any; // toda la lista de experiencia
   experiencia: Experiencia | any; // el item experiencia a editar
   idAEditar: number = 0;  // ID del elemento a editar
-  nIntervId: any; // id para la funcion Interval
   cargando: boolean = true; // marca final de carga de datos
 
   constructor( private datosBack:ExperienciaService, private route: ActivatedRoute,
@@ -30,17 +29,24 @@ export class EditaExperienciaComponent implements OnInit {
       }
     )
 
-    this.datosBack.ObtenerExperiencias().subscribe(data => {
-      this.listaExperiencia = data;
-
-      for (let index = 0; index < this.listaExperiencia.length; index++) { // busca elemento a editar
-        const element = this.listaExperiencia[index];
-        if (element.id == this.idAEditar) {
-          this.experiencia = element;
+    this.datosBack.ObtenerExperiencias().subscribe(
+      { next:data => {
+          this.listaExperiencia = data;
+    
+          for (let index = 0; index < this.listaExperiencia.length; index++) { // busca elemento a editar
+            const element = this.listaExperiencia[index];
+            if (element.id == this.idAEditar) {
+              this.experiencia = element;
+            }
+          }
+          console.log("Datos de Experiencia OK");
+          this.cargando = false;
+        },
+        error: _err => {
+          console.log("Error en dato de Experiencia");
         }
       }
-    });
-    this.nIntervId = setInterval(() => this.cargaTitular(), 2000); // emula tardanza de llegada de datos
+    );
   }
 
   guardaExperiencia(): void {
@@ -53,10 +59,4 @@ export class EditaExperienciaComponent implements OnInit {
   cancelar(): void {
     this.router2.navigate(['home']);
   } //   cancelar(): void {
-
-  private cargaTitular() { // emula tardanza de llegada de datos
-    clearInterval(this.nIntervId);   // release our intervalID from the variable
-    this.nIntervId = null;
-    this.cargando = false;
-  }
 }

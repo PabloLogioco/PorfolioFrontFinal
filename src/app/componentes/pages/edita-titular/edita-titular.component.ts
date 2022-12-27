@@ -14,7 +14,6 @@ import { Login } from 'src/Modelos/login';
 export class EditaTitularComponent implements OnInit {
 
   datosTitular: TitularM = new TitularM("", "", "");
-  nIntervId: any; // id para la funcion Interval
   cargando: boolean = true; // marca final de carga de datos
   datosLogBD: Login | any; // deben ser de la clase Login
   datosLogNuevos: Login = new Login("", "");
@@ -24,17 +23,28 @@ export class EditaTitularComponent implements OnInit {
                 private datosLogin: LoginService ) { }
 
   ngOnInit(): void {
-    this.datosBack.ObtenerTitular().subscribe(data => { this.datosTitular = data; });
-    this.datosLogin.buscarLogin().subscribe(logBD => { this.datosLogBD = logBD; });
-    this.nIntervId = setInterval(() => this.cargaTitular(), 2000); // emula tardanza de llegada de datos
-  }
-
-  private cargaTitular() { // emula tardanza de llegada de datos
-    clearInterval(this.nIntervId);   // release our intervalID from the variable
-    this.nIntervId = null;
-    this.cargando = false;
-
-    if (glob.edicionTotal) {
+    this.datosBack.ObtenerTitular().subscribe(
+      { next: data => { 
+          this.datosTitular = data;
+          console.log("Datos del Titular OK");
+        },
+        error: _err => {
+          console.log("Error en datos del Titular");
+        }
+      }
+    );
+    this.datosLogin.buscarLogin().subscribe(
+      { next: logBD => { 
+          this.datosLogBD = logBD;
+          console.log("Datos de login OK");
+          this.cargando = false;
+        },
+        error: _err => {
+          console.log("Error en datos de login");
+        }
+      }
+    );
+    if (glob.edicionTotal) { // carga usuario y contr. segun edicion
       this.datosLogNuevos.usuario = this.datosLogBD[0].usuario;
       this.datosLogNuevos.contrasenia = this.datosLogBD[0].contrasenia;
     } else {

@@ -28,15 +28,22 @@ export class EditaSkillsComponent implements OnInit {
         }
       }
     )
-    this.datosBack.ObtenerSkills().subscribe(data => { // trae datos del back, llena la lista
-      this.listaSkills = data;
-      for (let index = 0; index < this.listaSkills.length; index++) { // busca elemento a editar
-        const element = this.listaSkills[index];
-        if (element.id == this.idAEditar) {
-          this.skills = element;
+    this.datosBack.ObtenerSkills().subscribe(
+      { next: data => { // trae datos del back, llena la lista
+          this.listaSkills = data;
+          for (let index = 0; index < this.listaSkills.length; index++) { // busca elemento a editar
+            const element = this.listaSkills[index];
+            if (element.id == this.idAEditar) {
+              this.skills = element;
+              console.log("Datos de skill OK");
+            }
+          }
+        },
+        error: _err => {
+          console.log("Error en dato de skill");
         }
       }
-    });
+    );
   }
 
   public suma(): void { // suma % del grafico

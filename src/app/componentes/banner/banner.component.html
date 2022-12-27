@@ -1,6 +1,6 @@
 <div class="container_banner mx-5">
     <div class="row" id="fotoydatos"> <!-- 2° capa. Banner, foto de fondo, imagen de electronica -->
-        <div *ngIf="!fotoCargada; else yaEstaCargada">
+        <div *ngIf="cargando; else yaEstaCargada">
             <div>
                 <h3 class="etiqCarga">Cargando...</h3>
                 <h1></h1>

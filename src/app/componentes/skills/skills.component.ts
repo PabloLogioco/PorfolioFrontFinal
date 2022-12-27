@@ -14,16 +14,23 @@ export class SkillsComponent implements OnInit {
 
   edicionOK: boolean = glob.edicionHabilitada; 
   listaSkills: Skills | any;
-  animacion: number = 300;  // tiempo para la animacion
+  animacion: number = 1500;  // tiempo para la animacion
+  cargando: boolean = true;
 
   constructor( private datosBack:SkillsService, private router: Router  ) { }
 
   ngOnInit(): void {
-    this.datosBack.ObtenerSkills().subscribe(data => {
-      console.log("Obteniendo Skills");
-      console.log(data);
-      this.listaSkills = data;
-    });
+    this.datosBack.ObtenerSkills().subscribe(
+        { next: data => {
+            this.listaSkills = data;
+            console.log("Datos de Skills OK");
+            this.cargando = false;
+          },
+        error: _err => {
+          console.log("Error en datos de Skills");
+        }
+      }
+    );
   }
 
   public navegaAEditaSkills(id: number): void {
