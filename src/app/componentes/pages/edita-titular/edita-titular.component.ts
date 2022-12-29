@@ -46,11 +46,6 @@ export class EditaTitularComponent implements OnInit {
             this.datosLogNuevos.usuario = "Censurada";
             this.datosLogNuevos.contrasenia = "Censurada";
           }
-          console.log("Usuario: " + this.datosLogNuevos.usuario);
-          console.log("Contraseña: " + this.datosLogNuevos.contrasenia);
-      
-
-
         },
         error: _err => {
           console.log("Error en datos de login");
