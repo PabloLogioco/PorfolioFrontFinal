@@ -26,3 +26,8 @@ h1 {
 #cajaTexto {
     margin-left: 10px;
 }
+
+#valor {
+    color: white;
+    margin-left: 20px;
+}

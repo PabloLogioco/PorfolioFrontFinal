@@ -5,6 +5,7 @@
         <label id="titulo">Pordentaje</label>
         <button (click)="suma()" class="btn btn-outline-primary btn-sm" id="editProy">+</button>
         <button (click)="resta()" class="btn btn-outline-primary btn-sm" id="editProy">-</button>
+        <label id="valor">{{ skills.valor }}</label>
         <br>
         <label id="titulo">Titulo:</label>
         <input class="controls" type="text" [(ngModel)]="skills.titulo" value="" id="cajaTexto">
@@ -36,6 +37,8 @@
                 [animation]="true"
                 [animationDuration]="100"
                 [titleColor]="'white'"
+                [subtitleColor]="'white'"
+                [subtitleFontSize]="'20'"
         ></circle-progress>
     </div>
     <div class="text-center col-md-6 my-1">
