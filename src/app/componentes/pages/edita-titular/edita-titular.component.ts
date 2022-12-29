@@ -38,19 +38,25 @@ export class EditaTitularComponent implements OnInit {
           this.datosLogBD = logBD;
           console.log("Datos de login OK");
           this.cargando = false;
+
+          if (glob.edicionTotal) { // carga usuario y contr. segun edicion
+            this.datosLogNuevos.usuario = this.datosLogBD[0].usuario;
+            this.datosLogNuevos.contrasenia = this.datosLogBD[0].contrasenia;
+          } else {
+            this.datosLogNuevos.usuario = "Censurada";
+            this.datosLogNuevos.contrasenia = "Censurada";
+          }
+          console.log("Usuario: " + this.datosLogNuevos.usuario);
+          console.log("Contraseña: " + this.datosLogNuevos.contrasenia);
+      
+
+
         },
         error: _err => {
           console.log("Error en datos de login");
         }
       }
     );
-    if (glob.edicionTotal) { // carga usuario y contr. segun edicion
-      this.datosLogNuevos.usuario = this.datosLogBD[0].usuario;
-      this.datosLogNuevos.contrasenia = this.datosLogBD[0].contrasenia;
-    } else {
-      this.datosLogNuevos.usuario = "Censurada";
-      this.datosLogNuevos.contrasenia = "Censurada";
-    }
   }
 
   public editaTitular(): void {

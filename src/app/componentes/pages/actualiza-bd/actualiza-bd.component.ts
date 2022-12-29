@@ -13,7 +13,7 @@ export class ActualizaBDComponent implements OnInit {
   constructor( private router: Router ) { }
 
   ngOnInit(): void {
-    this.nIntervId = setInterval(() => this.finaliza(), 1000); // 1 seg
+    this.nIntervId = setInterval(() => this.finaliza(), 2000); //  seg
   }
 
   finaliza() {
